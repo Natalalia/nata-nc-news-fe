@@ -2,7 +2,8 @@ import React from "react";
 
 class Article extends React.Component {
   state = {
-    article: {}
+    article: {},
+    loading: true
   };
   render() {
     return <h1>Hello</h1>;

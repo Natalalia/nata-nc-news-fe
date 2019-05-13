@@ -1,5 +1,6 @@
 import React from "react";
 import ArticlesList from "./ArticlesList";
+import ArticlesHeader from "./ArticlesHeader";
 import { getArticles } from "../api";
 
 class Articles extends React.Component {
@@ -13,14 +14,11 @@ class Articles extends React.Component {
     }
     return (
       <div>
+        <ArticlesHeader />
         <ArticlesList list={this.state.articles} />
       </div>
     );
   }
-
-  search = input => {
-    console.log(input);
-  };
 
   componentDidMount() {
     getArticles().then(articles => {
