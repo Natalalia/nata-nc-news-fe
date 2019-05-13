@@ -3,6 +3,7 @@ import "./App.css";
 import { Router } from "@reach/router";
 import Header from "./components/Header";
 import Articles from "./components/Articles";
+import Article from "./components/Article";
 
 class App extends React.Component {
   render() {
@@ -11,6 +12,7 @@ class App extends React.Component {
         <Header />
         <Router>
           <Articles path="/articles" />
+          <Article path="/articles/:article_id" />
         </Router>
       </div>
     );

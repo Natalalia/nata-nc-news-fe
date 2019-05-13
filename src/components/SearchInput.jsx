@@ -6,13 +6,22 @@ class SearchInput extends React.Component {
   render() {
     return (
       <div>
-        <form>
-          <input />
+        <form onSubmit={this.handleSubmit}>
+          <input onChange={this.handleChange} />
           <button>Search</button>
         </form>
       </div>
     );
   }
+
+  handleChange = event => {
+    this.setState({ input: event.target.value });
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    this.props.onApply(this.state.input);
+  };
 }
 
 export default SearchInput;
