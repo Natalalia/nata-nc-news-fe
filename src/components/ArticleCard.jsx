@@ -9,6 +9,9 @@ class ArticleCard extends React.Component {
   };
 
   render() {
+    if (this.state.loading === true) {
+      return <p>Loading ...</p>;
+    }
     let bodyPreview = "";
     if (!this.state.loading) {
       const body = this.state.article.body;

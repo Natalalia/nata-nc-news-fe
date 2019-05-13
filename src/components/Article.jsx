@@ -7,8 +7,11 @@ class Article extends React.Component {
     loading: true
   };
   render() {
+    if (this.state.loading === true) {
+      return <p>Loading ...</p>;
+    }
     return (
-      <di>
+      <div>
         <h2>{this.state.article.title}</h2>
         <span>By: {this.state.article.author}</span>
         <span>Topic: {this.state.article.topic}</span>
@@ -16,7 +19,7 @@ class Article extends React.Component {
         <p>{this.state.article.body}</p>
         <span>Votes: {this.state.article.votes}</span>
         <span>Comments: {this.state.article.comment_count}</span>
-      </di>
+      </div>
     );
   }
 
