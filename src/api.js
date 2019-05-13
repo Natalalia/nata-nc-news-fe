@@ -15,3 +15,9 @@ export const fetchArticle = id => {
     return article;
   });
 };
+
+export const fetchUser = userName => {
+  return Axios.get(`${url}/users/${userName}`).then(({ data: { user } }) => {
+    return user;
+  });
+};
