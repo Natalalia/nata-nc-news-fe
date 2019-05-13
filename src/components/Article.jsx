@@ -17,6 +17,9 @@ class Article extends React.Component {
         <span>Topic: {this.state.article.topic}</span>
         <span>{this.state.article.created_at}</span>
         <p>{this.state.article.body}</p>
+        {this.props.loggedInUser === this.state.article.author ? (
+          <button>Delete article</button>
+        ) : null}
         <span>Votes: {this.state.article.votes}</span>
         <span>Comments: {this.state.article.comment_count}</span>
       </div>

@@ -15,9 +15,12 @@ class App extends React.Component {
       <div className="App">
         <Header onLogIn={this.onLogIn} />
         <Router>
-          <Home path="/" />
-          <Articles path="/articles" />
-          <Article path="/articles/:article_id" />
+          <Home path="/" loggedInUser={this.state.loggedInUser} />
+          <Articles path="/articles" loggedInUser={this.state.loggedInUser} />
+          <Article
+            path="/articles/:article_id"
+            loggedInUser={this.state.loggedInUser}
+          />
         </Router>
       </div>
     );
