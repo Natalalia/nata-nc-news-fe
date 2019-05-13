@@ -1,4 +1,5 @@
 import React from "react";
+import { fetchArticle } from "../api";
 
 class Article extends React.Component {
   state = {
@@ -6,7 +7,23 @@ class Article extends React.Component {
     loading: true
   };
   render() {
-    return <h1>Hello</h1>;
+    return (
+      <di>
+        <h2>{this.state.article.title}</h2>
+        <span>By: {this.state.article.author}</span>
+        <span>Topic: {this.state.article.topic}</span>
+        <span>{this.state.article.created_at}</span>
+        <p>{this.state.article.body}</p>
+        <span>Votes: {this.state.article.votes}</span>
+        <span>Comments: {this.state.article.comment_count}</span>
+      </di>
+    );
+  }
+
+  componentDidMount() {
+    fetchArticle(this.props.article_id).then(article => {
+      this.setState({ article, loading: false });
+    });
   }
 }
 
