@@ -7,10 +7,13 @@ import Articles from "./components/Articles";
 import Article from "./components/Article";
 
 class App extends React.Component {
+  state = {
+    loggedInUser: ""
+  };
   render() {
     return (
       <div className="App">
-        <Header />
+        <Header onLogIn={this.onLogIn} />
         <Router>
           <Home path="/" />
           <Articles path="/articles" />
@@ -19,6 +22,10 @@ class App extends React.Component {
       </div>
     );
   }
+
+  onLogIn = username => {
+    this.setState({ loggedInUser: username });
+  };
 }
 
 export default App;

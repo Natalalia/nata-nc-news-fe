@@ -1,8 +1,7 @@
 import React from "react";
-import { Link } from "@reach/router";
 import { fetchUser } from "../api";
 
-class Header extends React.Component {
+class LogIn extends React.Component {
   state = {
     userLogIn: "",
     isLoggedIn: false
@@ -33,8 +32,9 @@ class Header extends React.Component {
     event.preventDefault();
     fetchUser(this.state.userLogIn).then(user => {
       this.setState({ isLoggedIn: true });
+      this.props.onLogIn(user.username);
     });
   };
 }
 
-export default Header;
+export default LogIn;
