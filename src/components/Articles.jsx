@@ -14,7 +14,7 @@ class Articles extends React.Component {
     }
     return (
       <div>
-        <ArticlesHeader />
+        <ArticlesHeader loggedInUser={this.props.loggedInUser} />
         <ArticlesList list={this.state.articles} />
       </div>
     );
