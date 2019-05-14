@@ -5,7 +5,7 @@ const TopicsHeader = props => {
   return (
     <div>
       <h2>TOPICS</h2>
-      {props.loggedInUser ? <Link to="/new-topic">Post New Topic</Link> : null}
+      {props.loggedInUser ? <Link to="/new-topic">Add New Topic</Link> : null}
     </div>
   );
 };

@@ -43,3 +43,9 @@ export const submitArticle = article => {
     }
   );
 };
+
+export const submitTopic = topic => {
+  return Axios.post(`${url}/topics/`, topic).then(({ data: { topic } }) => {
+    return topic;
+  });
+};

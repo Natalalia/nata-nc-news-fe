@@ -53,7 +53,6 @@ class PostArticle extends React.Component {
       body: this.state.body,
       topic: this.state.topic
     }).then(article => {
-      console.log(article.article_id);
       navigate(`/articles/${article.article_id}`);
     });
   };
