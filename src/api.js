@@ -10,6 +10,14 @@ export const getArticles = query => {
   );
 };
 
+export const getComments = article_id => {
+  return Axios.get(`${url}/articles/${article_id}/comments`).then(
+    ({ data: { comments } }) => {
+      return comments;
+    }
+  );
+};
+
 export const fetchArticle = id => {
   return Axios.get(`${url}/articles/${id}`).then(({ data: { article } }) => {
     return article;
