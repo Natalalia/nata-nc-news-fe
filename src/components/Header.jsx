@@ -9,6 +9,7 @@ const Header = props => {
       <nav>
         <Link to="/">Home </Link>
         <Link to="/articles">Articles </Link>
+        <Link to="/topics">Topics</Link>
         <LogIn onLogIn={props.onLogIn} onLogOut={props.onLogOut} />
       </nav>
     </div>

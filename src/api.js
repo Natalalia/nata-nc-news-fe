@@ -18,6 +18,12 @@ export const getComments = article_id => {
   );
 };
 
+export const getTopics = () => {
+  return Axios.get(`${url}/topics`).then(({ data: { topics } }) => {
+    return topics;
+  });
+};
+
 export const fetchArticle = id => {
   return Axios.get(`${url}/articles/${id}`).then(({ data: { article } }) => {
     return article;
