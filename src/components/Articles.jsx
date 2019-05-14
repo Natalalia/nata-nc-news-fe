@@ -17,10 +17,16 @@ class Articles extends React.Component {
       <div>
         <ArticlesHeader loggedInUser={this.props.loggedInUser} />
         <ArticlesList list={this.state.articles} />
-        <TopicsList />
+        <TopicsList onSelect={this.onSelect} />
       </div>
     );
   }
+
+  onSelect = topic => {
+    getArticles({ topic }).then(articles => {
+      this.setState({ articles });
+    });
+  };
 
   componentDidMount() {
     getArticles().then(articles => {
