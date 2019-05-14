@@ -29,3 +29,11 @@ export const fetchUser = userName => {
     return user;
   });
 };
+
+export const submitArticle = article => {
+  return Axios.post(`${url}/articles/`, article).then(
+    ({ data: { article } }) => {
+      return article;
+    }
+  );
+};

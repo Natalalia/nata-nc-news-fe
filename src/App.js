@@ -22,6 +22,7 @@ class App extends React.Component {
             path="/articles/:article_id"
             loggedInUser={this.state.loggedInUser}
           />
+
           <PostArticle
             path="/new-article"
             loggedInUser={this.state.loggedInUser}
