@@ -1,6 +1,7 @@
 import React from "react";
 import ArticlesList from "./ArticlesList";
 import ArticlesHeader from "./ArticlesHeader";
+import TopicsList from "./TopicsList";
 import { getArticles } from "../api";
 
 class Articles extends React.Component {
@@ -16,6 +17,7 @@ class Articles extends React.Component {
       <div>
         <ArticlesHeader loggedInUser={this.props.loggedInUser} />
         <ArticlesList list={this.state.articles} />
+        <TopicsList />
       </div>
     );
   }
