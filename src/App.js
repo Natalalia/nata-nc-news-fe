@@ -13,7 +13,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Header onLogIn={this.onLogIn} />
+        <Header onLogIn={this.onLogIn} onLogOut={this.onLogOut} />
         <Router>
           <Home path="/" loggedInUser={this.state.loggedInUser} />
           <Articles path="/articles" loggedInUser={this.state.loggedInUser} />
@@ -28,6 +28,10 @@ class App extends React.Component {
 
   onLogIn = username => {
     this.setState({ loggedInUser: username });
+  };
+
+  onLogOut = () => {
+    this.setState({ loggedInUser: "" });
   };
 }
 

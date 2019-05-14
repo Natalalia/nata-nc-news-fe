@@ -25,7 +25,10 @@ class Article extends React.Component {
           <span>Votes: {this.state.article.votes}</span>
           <span>Comments: {this.state.article.comment_count}</span>
           <CommentsHeader />
-          <CommentsList article_id={this.state.article.article_id} />
+          <CommentsList
+            article_id={this.state.article.article_id}
+            loggedInUser={this.props.loggedInUser}
+          />
         </div>
       );
     }

@@ -9,7 +9,12 @@ class LogIn extends React.Component {
 
   render() {
     if (this.state.isLoggedIn) {
-      return <p>You have logged in!</p>;
+      return (
+        <div>
+          <p>You have logged in!</p>
+          <button onClick={this.handleClick}>LOG OUT</button>
+        </div>
+      );
     }
     return (
       <form onSubmit={this.handleSubmit}>
@@ -34,6 +39,11 @@ class LogIn extends React.Component {
       this.setState({ isLoggedIn: true });
       this.props.onLogIn(user.username);
     });
+  };
+
+  handleClick = () => {
+    this.setState({ userLogIn: "", isLoggedIn: false });
+    this.props.onLogOut("");
   };
 }
 
