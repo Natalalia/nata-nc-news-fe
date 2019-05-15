@@ -3,15 +3,11 @@ import ArticleCard from "./ArticleCard";
 
 const ArticlesList = props => {
   return (
-    <ul>
+    <div>
       {props.list.map(article => {
-        return (
-          <li key={article.article_id}>
-            <ArticleCard listElement={article} />
-          </li>
-        );
+        return <ArticleCard key={article.article_id} listElement={article} />;
       })}
-    </ul>
+    </div>
   );
 };
 

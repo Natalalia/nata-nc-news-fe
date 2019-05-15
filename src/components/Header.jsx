@@ -6,12 +6,14 @@ const Header = props => {
   return (
     <div>
       <h1>Nata NC News</h1>
-      <nav>
-        <Link to="/">Home </Link>
-        <Link to="/articles">Articles </Link>
-        <Link to="/topics">Topics</Link>
+      <div className="menu">
+        <nav>
+          <Link to="/">Home</Link>
+          <Link to="/articles">Articles</Link>
+          <Link to="/topics">Topics</Link>
+        </nav>
         <LogIn onLogIn={props.onLogIn} onLogOut={props.onLogOut} />
-      </nav>
+      </div>
     </div>
   );
 };

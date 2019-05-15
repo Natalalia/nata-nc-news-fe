@@ -108,6 +108,10 @@ article .info a {
   font-weight: bold;
 }
 
+article .info a:hover {
+  text-decoration: underline;
+}
+
 .App {
   text-align: center;
   margin: 0 25px;
@@ -117,4 +121,42 @@ article .info a {
   width: 100%;
   max-width: 950px;
   margin: 0 auto;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu a {
+  padding: 0.2em 0.9em;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.menu a:hover {
+  color: rgb(101, 84, 179);
+  font-weight: bold;
+}
+
+.previewArticlesContainer {
+  display: flex;
+}
+
+.topicsList {
+  padding: 0.5em;
+}
+
+.topicsListHeader {
+  margin: 0em 0.5em 0.5em 0.5em;
+}
+
+.topicsList li {
+  padding: 0.5em;
+  cursor: pointer;
+}
+
+.topicsList li:hover {
+  color: rgb(101, 84, 179);
+  font-weight: bold;
 }

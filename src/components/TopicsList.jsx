@@ -12,8 +12,8 @@ class TopicsList extends React.Component {
     }
     return (
       <div>
-        <h3>TOPICS:</h3>
-        <ul>
+        <h3 className="topicsListHeader">TOPICS:</h3>
+        <ul className="topicsList">
           {this.state.topics.map((topic, i) => {
             return (
               <li key={i} onClick={() => this.handleClick(topic.slug)}>
