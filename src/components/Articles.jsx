@@ -7,6 +7,7 @@ import { getArticles } from "../api";
 class Articles extends React.Component {
   state = {
     articles: [],
+    p: 1,
     loading: true
   };
   render() {
@@ -24,10 +25,33 @@ class Articles extends React.Component {
           <option value="votes">number of votes</option>
         </select>
         <ArticlesList list={this.state.articles} />
+        <button
+          onClick={() => {
+            this.changePage(1);
+          }}
+        >
+          next
+        </button>
         <TopicsList onSelect={this.onSelect} />
       </div>
     );
   }
+
+  componentDidMount() {
+    this.fetchArticles();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.p === this.state.p) {
+      this.fetchArticles();
+    }
+  }
+
+  fetchArticles = () => {
+    getArticles({ p: this.state.p }).then(articles => {
+      this.setState({ articles, loading: false });
+    });
+  };
 
   handleClick = value => {
     getArticles({ sort_by: value }).then(articles => {
@@ -41,11 +65,11 @@ class Articles extends React.Component {
     });
   };
 
-  componentDidMount() {
-    getArticles().then(articles => {
-      this.setState({ articles, loading: false });
+  changePage = direction => {
+    this.setState(prevState => {
+      return { p: prevState.p + direction };
     });
-  }
+  };
 }
 
 export default Articles;
