@@ -1,10 +1,11 @@
 import React from "react";
-import { fetchArticle } from "../api";
+import { fetchArticle, patchArticle } from "../api";
 import Comments from "./Comments";
 
 class Article extends React.Component {
   state = {
     article: {},
+    votes: 0,
     loading: true
   };
   render() {
@@ -21,7 +22,19 @@ class Article extends React.Component {
           {this.props.loggedInUser === this.state.article.author ? (
             <button>Delete article</button>
           ) : null}
-          <span>Votes: {this.state.article.votes}</span>
+          <span>Votes:{this.state.article.votes + this.state.votes}</span>
+          <button
+            onClick={e => this.handleVote(1)}
+            disabled={this.state.votes === 1 || this.state.votes === -1}
+          >
+            like
+          </button>
+          <button
+            onClick={() => this.handleVote(-1)}
+            disabled={this.state.votes === 1 || this.state.votes === -1}
+          >
+            dislike
+          </button>
           <span>Comments: {this.state.article.comment_count}</span>
           <h3>COMMENTS:</h3>
           <Comments
@@ -35,9 +48,17 @@ class Article extends React.Component {
 
   componentDidMount() {
     fetchArticle(this.props.article_id).then(article => {
-      this.setState({ article, loading: false });
+      this.setState({ article, votes: 0, loading: false });
     });
   }
+
+  handleVote = direction => {
+    patchArticle(this.state.article.article_id, direction);
+    this.setState(prevState => {
+      const newVote = prevState.votes + direction;
+      return { votes: newVote };
+    });
+  };
 }
 
 export default Article;

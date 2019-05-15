@@ -37,6 +37,7 @@ class AddComment extends React.Component {
     }).then(comment => {
       this.props.addComment(comment);
     });
+    this.setState({ comment_body: "" });
   };
 }
 
