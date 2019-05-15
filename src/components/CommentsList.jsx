@@ -1,33 +1,23 @@
 import React from "react";
-import { getComments } from "../api";
 import CommentCard from "./CommentCard";
 
-class CommentsList extends React.Component {
-  state = {
-    comments: []
-  };
-  render() {
-    return (
+const CommentsList = props => {
+  return (
+    <div>
       <ul>
-        {this.state.comments.map(comment => {
+        {props.comments.map(comment => {
           return (
             <li key={comment.comment_id}>
               <CommentCard
                 comment={comment}
-                loggedInUser={this.props.loggedInUser}
+                loggedInUser={props.loggedInUser}
               />
             </li>
           );
         })}
       </ul>
-    );
-  }
-
-  componentDidMount() {
-    getComments(this.props.article_id).then(comments => {
-      this.setState({ comments });
-    });
-  }
-}
+    </div>
+  );
+};
 
 export default CommentsList;

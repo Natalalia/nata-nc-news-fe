@@ -49,3 +49,11 @@ export const submitTopic = topic => {
     return topic;
   });
 };
+
+export const submitComment = (id, comment) => {
+  return Axios.post(`${url}/articles/${id}/comments`, comment).then(
+    ({ data: { comment } }) => {
+      return comment;
+    }
+  );
+};

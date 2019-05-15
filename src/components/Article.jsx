@@ -1,7 +1,6 @@
 import React from "react";
 import { fetchArticle } from "../api";
-import CommentsList from "./CommentsList";
-import CommentsHeader from "./CommentsHeader";
+import Comments from "./Comments";
 
 class Article extends React.Component {
   state = {
@@ -24,8 +23,8 @@ class Article extends React.Component {
           ) : null}
           <span>Votes: {this.state.article.votes}</span>
           <span>Comments: {this.state.article.comment_count}</span>
-          <CommentsHeader />
-          <CommentsList
+          <h3>COMMENTS:</h3>
+          <Comments
             article_id={this.state.article.article_id}
             loggedInUser={this.props.loggedInUser}
           />
