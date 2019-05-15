@@ -16,21 +16,23 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Header onLogIn={this.onLogIn} onLogOut={this.onLogOut} />
-        <Router>
-          <Home path="/" loggedInUser={this.state.loggedInUser} />
-          <Articles path="/articles" loggedInUser={this.state.loggedInUser} />
-          <Article
-            path="/articles/:article_id"
-            loggedInUser={this.state.loggedInUser}
-          />
-          <Topics path="/topics" loggedInUser={this.state.loggedInUser} />
-          <PostArticle
-            path="/new-article"
-            loggedInUser={this.state.loggedInUser}
-          />
-          <AddTopic path="new-topic" />
-        </Router>
+        <div className="site-container">
+          <Header onLogIn={this.onLogIn} onLogOut={this.onLogOut} />
+          <Router>
+            <Home path="/" loggedInUser={this.state.loggedInUser} />
+            <Articles path="/articles" loggedInUser={this.state.loggedInUser} />
+            <Article
+              path="/articles/:article_id"
+              loggedInUser={this.state.loggedInUser}
+            />
+            <Topics path="/topics" loggedInUser={this.state.loggedInUser} />
+            <PostArticle
+              path="/new-article"
+              loggedInUser={this.state.loggedInUser}
+            />
+            <AddTopic path="new-topic" />
+          </Router>
+        </div>
       </div>
     );
   }

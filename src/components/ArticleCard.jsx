@@ -20,7 +20,7 @@ class ArticleCard extends React.Component {
       bodyPreview = bodyPreviewArray.join(" ");
     }
     return (
-      <nav>
+      <article>
         <Link to="/">{this.props.listElement.author}</Link>
         <Link to="/">{this.props.listElement.topic}</Link>
         <span>{this.props.listElement.created_at}</span>
@@ -30,7 +30,7 @@ class ArticleCard extends React.Component {
         <p>{bodyPreview}...</p>
         <span>Votes:{this.props.listElement.votes}</span>
         <span>Comments:{this.props.listElement.comment_count}</span>
-      </nav>
+      </article>
     );
   }
 
