@@ -65,3 +65,11 @@ export const patchArticle = (id, voteDirection) => {
     return article;
   });
 };
+
+export const patchComment = (id, voteDirection) => {
+  return Axios.patch(`${url}/comments/${id}`, {
+    inc_votes: voteDirection
+  }).then(({ data: { comment } }) => {
+    return comment;
+  });
+};
