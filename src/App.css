@@ -160,3 +160,8 @@ article .info a:hover {
   color: rgb(101, 84, 179);
   font-weight: bold;
 }
+
+.interactWithArticles {
+  display: flex;
+  justify-content: flex-end;
+}

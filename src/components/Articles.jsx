@@ -23,13 +23,15 @@ class Articles extends React.Component {
         <div className="previewArticlesContainer">
           <TopicsList onSelect={this.onSelect} />
           <div>
-            <label>Order by:</label>
-            <select onClick={e => this.handleClick(e.target.value)}>
-              <option value="">- - -</option>
-              <option value="created_at">date created</option>
-              <option value="comment_count">number of comments</option>
-              <option value="votes">number of votes</option>
-            </select>
+            <div className="interactWithArticles">
+              <label>Order by:</label>
+              <select onClick={e => this.handleClick(e.target.value)}>
+                <option value="">- - -</option>
+                <option value="created_at">date created</option>
+                <option value="comment_count">number of comments</option>
+                <option value="votes">number of votes</option>
+              </select>
+            </div>
             <ArticlesList list={this.state.articles} />
             <button
               onClick={() => {
