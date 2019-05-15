@@ -4,10 +4,10 @@ import ArticleCard from "./ArticleCard";
 const ArticlesList = props => {
   return (
     <ul>
-      {props.list.map(item => {
+      {props.list.map(article => {
         return (
-          <li key={item.article_id}>
-            <ArticleCard listElement={item} />
+          <li key={article.article_id}>
+            <ArticleCard listElement={article} />
           </li>
         );
       })}

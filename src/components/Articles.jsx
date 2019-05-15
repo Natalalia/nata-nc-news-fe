@@ -7,7 +7,10 @@ import { getArticles } from "../api";
 class Articles extends React.Component {
   state = {
     articles: [],
+    total_count: 0,
     p: 1,
+    sort_by: null,
+    topic: null,
     loading: true
   };
   render() {
@@ -27,8 +30,17 @@ class Articles extends React.Component {
         <ArticlesList list={this.state.articles} />
         <button
           onClick={() => {
+            this.changePage(-1);
+          }}
+          disabled={this.state.p === 1}
+        >
+          prev
+        </button>
+        <button
+          onClick={() => {
             this.changePage(1);
           }}
+          disabled={this.state.p === Math.ceil(this.state.total_count / 10)}
         >
           next
         </button>
@@ -42,27 +54,35 @@ class Articles extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.p === this.state.p) {
+    if (
+      prevState.p !== this.state.p ||
+      prevState.sort_by !== this.state.sort_by ||
+      prevState.topic !== this.state.topic
+    ) {
       this.fetchArticles();
     }
   }
 
   fetchArticles = () => {
-    getArticles({ p: this.state.p }).then(articles => {
-      this.setState({ articles, loading: false });
+    getArticles({
+      p: this.state.p,
+      sort_by: this.state.sort_by,
+      topic: this.state.topic
+    }).then(data => {
+      this.setState({
+        articles: data.articles,
+        total_count: data.total_count,
+        loading: false
+      });
     });
   };
 
   handleClick = value => {
-    getArticles({ sort_by: value }).then(articles => {
-      this.setState({ articles });
-    });
+    this.setState({ sort_by: value });
   };
 
   onSelect = topic => {
-    getArticles({ topic }).then(articles => {
-      this.setState({ articles });
-    });
+    this.setState({ topic });
   };
 
   changePage = direction => {

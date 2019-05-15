@@ -3,11 +3,9 @@ import Axios from "axios";
 const url = "https://nata-nc-news.herokuapp.com/api";
 
 export const getArticles = query => {
-  return Axios.get(`${url}/articles`, { params: query }).then(
-    ({ data: { articles } }) => {
-      return articles;
-    }
-  );
+  return Axios.get(`${url}/articles`, { params: query }).then(({ data }) => {
+    return data;
+  });
 };
 
 export const getComments = article_id => {
