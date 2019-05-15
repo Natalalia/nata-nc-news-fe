@@ -20,16 +20,23 @@ class ArticleCard extends React.Component {
       bodyPreview = bodyPreviewArray.join(" ");
     }
     return (
-      <article>
-        <Link to="/">{this.props.listElement.author}</Link>
-        <Link to="/">{this.props.listElement.topic}</Link>
-        <span>{this.props.listElement.created_at}</span>
-        <Link to={`/articles/${this.props.listElement.article_id}`}>
+      <article className="articlesBrief">
+        <Link
+          className="title"
+          to={`/articles/${this.props.listElement.article_id}`}
+        >
           {this.props.listElement.title}
         </Link>
+        <div className="info">
+          <Link to="/">{this.props.listElement.author}</Link>
+          <Link to="/">{this.props.listElement.topic}</Link>
+          <span>{this.props.listElement.created_at}</span>
+        </div>
         <p>{bodyPreview}...</p>
-        <span>Votes:{this.props.listElement.votes}</span>
-        <span>Comments:{this.props.listElement.comment_count}</span>
+        <div className="opinions">
+          <span>Votes:{this.props.listElement.votes}</span>
+          <span>Comments:{this.props.listElement.comment_count}</span>
+        </div>
       </article>
     );
   }

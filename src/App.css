@@ -34,6 +34,11 @@ h5 {
   font-weight: 600;
 }
 
+a {
+  color: #000000;
+  text-decoration-line: none;
+}
+
 p,
 label,
 li,
@@ -72,8 +77,35 @@ article {
   margin: 4rem 0;
 }
 
+article.articlesBrief {
+  padding-top: 1rem;
+}
+
 article h2 {
   margin: 0 0 45px 0;
+}
+
+article .title {
+  font-size: 53px;
+  font-weight: 600;
+  color: #000000;
+  font-family: "Amatic SC", sans-serif;
+}
+
+article .info {
+  padding: 2rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+article .opinions {
+  padding-top: 1rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+article .info a {
+  font-weight: bold;
 }
 
 .App {
