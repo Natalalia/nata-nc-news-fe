@@ -78,11 +78,11 @@ class Articles extends React.Component {
   };
 
   handleClick = value => {
-    this.setState({ sort_by: value });
+    this.setState({ sort_by: value, p: 1 });
   };
 
   onSelect = topic => {
-    this.setState({ topic });
+    this.setState({ topic, p: 1 });
   };
 
   changePage = direction => {
