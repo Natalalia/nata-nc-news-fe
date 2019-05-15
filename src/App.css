@@ -1,3 +1,70 @@
+@import url("https://fonts.googleapis.com/css?family=Amatic+SC|Dosis");
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Amatic SC", sans-serif;
+}
+
+h1 {
+  font-size: 64px;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 53px;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 40px;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+h5 {
+  font-size: 26px;
+  font-weight: 600;
+}
+
+p,
+label,
+li,
+button,
+a,
+select {
+  font-family: "Dosis", sans-serif;
+}
+
+p {
+  font-size: 18px;
+}
+
+li {
+  list-style-type: none;
+  font-size: 16px;
+}
+
+label {
+  font-size: 20px;
+}
+
+button {
+  font-size: 15px;
+  padding: 1px;
+}
+
+input {
+  font-size: 16px;
+}
+
 .App {
   text-align: center;
 }
