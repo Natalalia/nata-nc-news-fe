@@ -16,11 +16,24 @@ class Articles extends React.Component {
     return (
       <div>
         <ArticlesHeader loggedInUser={this.props.loggedInUser} />
+        <label>Order by:</label>
+        <select onClick={e => this.handleClick(e.target.value)}>
+          <option value="">- - -</option>
+          <option value="created_at">date created</option>
+          <option value="comment_count">number of comments</option>
+          <option value="votes">number of votes</option>
+        </select>
         <ArticlesList list={this.state.articles} />
         <TopicsList onSelect={this.onSelect} />
       </div>
     );
   }
+
+  handleClick = value => {
+    getArticles({ sort_by: value }).then(articles => {
+      this.setState({ articles });
+    });
+  };
 
   onSelect = topic => {
     getArticles({ topic }).then(articles => {
