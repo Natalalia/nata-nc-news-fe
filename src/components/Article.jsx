@@ -2,16 +2,26 @@ import React from "react";
 import { fetchArticle, patchArticle, deleteArticle } from "../api";
 import Comments from "./Comments";
 import { navigate } from "@reach/router";
+import ShowError from "./ShowError";
 
 class Article extends React.Component {
   state = {
     article: {},
     votes: 0,
+    errorStatus: null,
+    errorMsg: null,
     loading: true
   };
   render() {
     if (this.state.loading === true) {
       return <p>Loading ...</p>;
+    } else if (this.state.errorMsg) {
+      return (
+        <ShowError
+          status={this.state.errorStatus}
+          message={this.state.errorMsg}
+        />
+      );
     } else {
       return (
         <div>
@@ -54,9 +64,17 @@ class Article extends React.Component {
   }
 
   componentDidMount() {
-    fetchArticle(this.props.article_id).then(article => {
-      this.setState({ article, votes: 0, loading: false });
-    });
+    fetchArticle(this.props.article_id)
+      .then(article => {
+        this.setState({ article, votes: 0, loading: false });
+      })
+      .catch(({ response: { data, status } }) => {
+        this.setState({
+          errorMsg: data.msg,
+          errorStatus: status,
+          loading: false
+        });
+      });
   }
 
   handleVote = direction => {
