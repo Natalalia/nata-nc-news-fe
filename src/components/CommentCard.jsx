@@ -10,24 +10,30 @@ class CommentCard extends React.Component {
     return (
       <div>
         <span>{this.props.comment.author}</span>
-        {this.props.loggedInUser === this.props.comment.author ? (
-          <button onClick={this.handleDelete}>Delete comment</button>
-        ) : null}
+
         <span>{this.props.comment.created_at}</span>
         <p>{this.props.comment.body}</p>
         <span>Votes: {this.props.comment.votes + this.state.vote}</span>
-        <button
-          onClick={e => this.handleVote(1)}
-          disabled={this.state.vote === 1 || this.state.vote === -1}
-        >
-          like
-        </button>
-        <button
-          onClick={() => this.handleVote(-1)}
-          disabled={this.state.vote === 1 || this.state.vote === -1}
-        >
-          dislike
-        </button>
+
+        {this.props.loggedInUser ? (
+          <div>
+            <button
+              onClick={e => this.handleVote(1)}
+              disabled={this.state.vote === 1 || this.state.vote === -1}
+            >
+              like
+            </button>
+            <button
+              onClick={() => this.handleVote(-1)}
+              disabled={this.state.vote === 1 || this.state.vote === -1}
+            >
+              dislike
+            </button>
+            {this.props.loggedInUser === this.props.comment.author ? (
+              <button onClick={this.handleDelete}>Delete comment</button>
+            ) : null}
+          </div>
+        ) : null}
       </div>
     );
   }
