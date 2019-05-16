@@ -14,6 +14,7 @@ class AddComment extends React.Component {
             <label>Add new comment:</label>
             <br />
             <textarea
+              required
               value={this.state.comment_body}
               onChange={this.handleChange}
             />

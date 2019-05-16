@@ -6,7 +6,7 @@ class PostArticle extends React.Component {
   state = {
     title: "",
     body: "",
-    topic: "coding",
+    topic: null,
     loading: true
   };
   render() {
@@ -19,19 +19,23 @@ class PostArticle extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <label>Title:</label>
           <input
+            required
             value={this.state.title}
             onChange={e => this.handleChange("title", e.target.value)}
           />
           <label>Topic:</label>
           <select
+            required
             value={this.state.topic}
             onChange={e => this.handleChange("topic", e.target.value)}
           >
+            <option value="">----</option>
             <option value="coding">Coding</option>
             <option value="cooking">Cooking</option>
             <option value="football">Football</option>
           </select>
           <textarea
+            required
             value={this.state.body}
             onChange={e => this.handleChange("body", e.target.value)}
           />

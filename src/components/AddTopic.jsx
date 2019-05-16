@@ -13,12 +13,14 @@ class AddTopic extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <label>Topic:</label>
           <input
+            required
             value={this.state.slug}
             onChange={e => this.handleChange("slug", e.target.value)}
           />
           <br />
           <label>Description:</label>
           <input
+            required
             value={this.state.description}
             onChange={e => this.handleChange("description", e.target.value)}
           />
