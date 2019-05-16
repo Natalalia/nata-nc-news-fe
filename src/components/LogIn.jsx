@@ -4,7 +4,8 @@ import { fetchUser } from "../api";
 class LogIn extends React.Component {
   state = {
     userLogIn: "",
-    isLoggedIn: false
+    isLoggedIn: false,
+    isExistingUser: true
   };
 
   render() {
@@ -25,6 +26,9 @@ class LogIn extends React.Component {
           type="text"
         />
         <button>LOG IN</button>
+        {!this.state.isExistingUser ? (
+          <p>Please, enter a valid username!</p>
+        ) : null}
       </form>
     );
   }
@@ -35,10 +39,14 @@ class LogIn extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    fetchUser(this.state.userLogIn).then(user => {
-      this.setState({ isLoggedIn: true });
-      this.props.onLogIn(user.username);
-    });
+    fetchUser(this.state.userLogIn)
+      .then(user => {
+        this.setState({ isLoggedIn: true });
+        this.props.onLogIn(user.username);
+      })
+      .catch(() => {
+        this.setState({ isExistingUser: false });
+      });
   };
 
   handleClick = () => {
