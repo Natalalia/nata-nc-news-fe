@@ -4,7 +4,7 @@ import { Link } from "@reach/router";
 const ArticlesHeader = props => {
   return (
     <div>
-      {props.author ? <h2>{props.author} ARTICLES</h2> : <h2>ARTICLES</h2>}
+      {props.author ? <h2>{props.author}'s ARTICLES</h2> : <h2>ARTICLES</h2>}
       {props.loggedInUser ? (
         <Link to="/new-article">Post New Article</Link>
       ) : null}

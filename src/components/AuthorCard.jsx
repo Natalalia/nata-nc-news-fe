@@ -10,7 +10,6 @@ class AuthorCard extends React.Component {
           <Link
             to="/author/articles"
             state={{
-              from: "AuthorCard",
               author: this.props.listAuthor.username
             }}
           >
