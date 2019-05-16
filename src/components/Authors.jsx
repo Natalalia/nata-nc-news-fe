@@ -6,13 +6,16 @@ import { getAuthors } from "../api";
 class Authors extends React.Component {
   state = {
     authors: [],
-    loading: true
+    loading: true,
+    error: false
   };
   render() {
-    if (this.state.loading === true) {
+    if (this.state.loading) {
       return <p>Loading ...</p>;
     }
-
+    if (this.state.error) {
+      return <p>Internal error, try later...</p>;
+    }
     return (
       <div>
         <AuthorsHeader />
@@ -30,9 +33,13 @@ class Authors extends React.Component {
   }
 
   componentDidMount() {
-    getAuthors().then(authors => {
-      this.setState({ authors, loading: false });
-    });
+    getAuthors()
+      .then(authors => {
+        this.setState({ authors, loading: false });
+      })
+      .catch(() => {
+        this.setState({ error: true, loading: false });
+      });
   }
 }
 

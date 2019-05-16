@@ -4,11 +4,15 @@ import { getTopics } from "../api";
 class TopicsList extends React.Component {
   state = {
     topics: [],
-    loading: true
+    loading: true,
+    error: false
   };
   render() {
-    if (this.state.loading === true) {
+    if (this.state.loading) {
       return <p>Loading...</p>;
+    }
+    if (this.state.error) {
+      return <p>Try later...</p>;
     }
     return (
       <div>
@@ -27,9 +31,13 @@ class TopicsList extends React.Component {
   }
 
   componentDidMount() {
-    getTopics().then(topics => {
-      this.setState({ topics, loading: false });
-    });
+    getTopics()
+      .then(topics => {
+        this.setState({ topics, loading: false });
+      })
+      .catch(() => {
+        this.setState({ error: true, loading: false });
+      });
   }
 
   handleClick = slug => {

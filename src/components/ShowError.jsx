@@ -2,9 +2,9 @@ import React from "react";
 
 const ShowError = props => {
   return (
-    <h1>
+    <p>
       {props.status}:{props.message}
-    </h1>
+    </p>
   );
 };
 

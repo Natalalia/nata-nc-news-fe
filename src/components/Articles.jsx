@@ -12,11 +12,15 @@ class Articles extends React.Component {
     sort_by: null,
     topic: null,
     author: this.props.author,
-    loading: true
+    loading: true,
+    error: false
   };
   render() {
-    if (this.state.loading === true) {
+    if (this.state.loading) {
       return <p>Loading ...</p>;
+    }
+    if (this.state.error) {
+      return <p>Internal error, try later...</p>;
     }
     return (
       <div>
@@ -80,13 +84,17 @@ class Articles extends React.Component {
       sort_by: this.state.sort_by,
       topic: this.state.topic,
       author: this.state.author
-    }).then(data => {
-      this.setState({
-        articles: data.articles,
-        total_count: data.total_count,
-        loading: false
+    })
+      .then(data => {
+        this.setState({
+          articles: data.articles,
+          total_count: data.total_count,
+          loading: false
+        });
+      })
+      .catch(() => {
+        this.setState({ error: true, loading: false });
       });
-    });
   };
 
   handleClick = value => {
