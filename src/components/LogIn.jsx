@@ -21,6 +21,7 @@ class LogIn extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <label>Username:</label>
         <input
+          placeholder="cooljmessy"
           value={this.state.userLogIn}
           onChange={this.handleChange}
           type="text"
