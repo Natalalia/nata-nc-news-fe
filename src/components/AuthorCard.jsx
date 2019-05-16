@@ -1,15 +1,26 @@
 import React from "react";
+import { Link } from "@reach/router";
 
-const AuthorCard = props => {
-  return (
-    <div>
+class AuthorCard extends React.Component {
+  render() {
+    return (
       <div>
-        <p>Image here!</p>
-        <h4>{props.listAuthor.username.toUpperCase()}</h4>
+        <div>
+          <p>Image here!</p>
+          <Link
+            to="/author/articles"
+            state={{
+              from: "AuthorCard",
+              author: this.props.listAuthor.username
+            }}
+          >
+            {this.props.listAuthor.username.toUpperCase()}
+          </Link>
+        </div>
+        <p>{this.props.listAuthor.name}</p>
       </div>
-      <p>{props.listAuthor.name}</p>
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default AuthorCard;

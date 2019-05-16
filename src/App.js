@@ -9,6 +9,7 @@ import PostArticle from "./components/PostArticle";
 import Topics from "./components/Topics";
 import AddTopic from "./components/AddTopic";
 import Authors from "./components/Authors";
+import AuthorArticles from "./components/AuthorArticles";
 
 class App extends React.Component {
   state = {
@@ -33,6 +34,7 @@ class App extends React.Component {
             />
             <AddTopic path="new-topic" />
             <Authors path="/authors" />
+            <AuthorArticles path="/author/articles" />
           </Router>
         </div>
       </div>

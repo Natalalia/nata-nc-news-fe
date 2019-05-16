@@ -16,7 +16,7 @@ class ArticleCard extends React.Component {
     if (!this.state.loading) {
       const body = this.state.article.body;
       const bodyArray = body.split(" ");
-      const bodyPreviewArray = bodyArray.slice(0, 8);
+      const bodyPreviewArray = bodyArray.slice(0, 25);
       bodyPreview = bodyPreviewArray.join(" ");
     }
     return (
@@ -28,8 +28,8 @@ class ArticleCard extends React.Component {
           {this.props.listElement.title}
         </Link>
         <div className="info">
-          <Link to="/">{this.props.listElement.author}</Link>
-          <Link to="/">{this.props.listElement.topic}</Link>
+          <Link to="/author/articles">{this.props.listElement.author}</Link>
+          <span>{this.props.listElement.topic.toUpperCase()}</span>
           <span>{this.props.listElement.created_at}</span>
         </div>
         <p>{bodyPreview}...</p>

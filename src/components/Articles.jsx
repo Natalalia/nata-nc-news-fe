@@ -11,6 +11,7 @@ class Articles extends React.Component {
     p: 1,
     sort_by: null,
     topic: null,
+    author: this.props.author,
     loading: true
   };
   render() {
@@ -19,7 +20,10 @@ class Articles extends React.Component {
     }
     return (
       <div>
-        <ArticlesHeader loggedInUser={this.props.loggedInUser} />
+        <ArticlesHeader
+          loggedInUser={this.props.loggedInUser}
+          author={this.props.author}
+        />
         <div className="previewArticlesContainer">
           <TopicsList onSelect={this.onSelect} />
           <div>
@@ -63,7 +67,8 @@ class Articles extends React.Component {
     if (
       prevState.p !== this.state.p ||
       prevState.sort_by !== this.state.sort_by ||
-      prevState.topic !== this.state.topic
+      prevState.topic !== this.state.topic ||
+      prevState.author !== this.state.author
     ) {
       this.fetchArticles();
     }
@@ -73,7 +78,8 @@ class Articles extends React.Component {
     getArticles({
       p: this.state.p,
       sort_by: this.state.sort_by,
-      topic: this.state.topic
+      topic: this.state.topic,
+      author: this.state.author
     }).then(data => {
       this.setState({
         articles: data.articles,
