@@ -8,6 +8,7 @@ import Article from "./components/Article";
 import PostArticle from "./components/PostArticle";
 import Topics from "./components/Topics";
 import AddTopic from "./components/AddTopic";
+import Authors from "./components/Authors";
 
 class App extends React.Component {
   state = {
@@ -31,6 +32,7 @@ class App extends React.Component {
               loggedInUser={this.state.loggedInUser}
             />
             <AddTopic path="new-topic" />
+            <Authors path="/authors" />
           </Router>
         </div>
       </div>

@@ -11,6 +11,7 @@ const Header = props => {
           <Link to="/">Home</Link>
           <Link to="/articles">Articles</Link>
           <Link to="/topics">Topics</Link>
+          <Link to="/authors">Authors</Link>
         </nav>
         <LogIn onLogIn={props.onLogIn} onLogOut={props.onLogOut} />
       </div>

@@ -22,6 +22,12 @@ export const getTopics = () => {
   });
 };
 
+export const getAuthors = () => {
+  return Axios.get(`${url}/users`).then(({ data: { users } }) => {
+    return users;
+  });
+};
+
 export const fetchArticle = id => {
   return Axios.get(`${url}/articles/${id}`).then(({ data: { article } }) => {
     return article;
