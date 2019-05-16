@@ -20,22 +20,26 @@ class Article extends React.Component {
             <span>Topic: {this.state.article.topic}</span>
             <span>{this.state.article.created_at}</span>
             <p>{this.state.article.body}</p>
-            {this.props.loggedInUser === this.state.article.author ? (
-              <button>Delete article</button>
-            ) : null}
             <span>Votes:{this.state.article.votes + this.state.votes}</span>
-            <button
-              onClick={e => this.handleVote(1)}
-              disabled={this.state.votes === 1 || this.state.votes === -1}
-            >
-              like
-            </button>
-            <button
-              onClick={() => this.handleVote(-1)}
-              disabled={this.state.votes === 1 || this.state.votes === -1}
-            >
-              dislike
-            </button>
+            {this.props.loggedInUser ? (
+              <div>
+                <button
+                  onClick={e => this.handleVote(1)}
+                  disabled={this.state.votes === 1 || this.state.votes === -1}
+                >
+                  like
+                </button>
+                <button
+                  onClick={() => this.handleVote(-1)}
+                  disabled={this.state.votes === 1 || this.state.votes === -1}
+                >
+                  dislike
+                </button>
+                {this.props.loggedInUser === this.state.article.author ? (
+                  <button>Delete article</button>
+                ) : null}
+              </div>
+            ) : null}
             <span>Comments: {this.state.article.comment_count}</span>
           </article>
           <h3>COMMENTS:</h3>
