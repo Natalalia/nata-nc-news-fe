@@ -83,3 +83,9 @@ export const deleteComment = id => {
     return comment;
   });
 };
+
+export const deleteArticle = id => {
+  return Axios.delete(`${url}/articles/${id}`).then(({ data: { article } }) => {
+    return article;
+  });
+};

@@ -1,6 +1,7 @@
 import React from "react";
-import { fetchArticle, patchArticle } from "../api";
+import { fetchArticle, patchArticle, deleteArticle } from "../api";
 import Comments from "./Comments";
+import { navigate } from "@reach/router";
 
 class Article extends React.Component {
   state = {
@@ -36,7 +37,7 @@ class Article extends React.Component {
                   dislike
                 </button>
                 {this.props.loggedInUser === this.state.article.author ? (
-                  <button>Delete article</button>
+                  <button onClick={this.handleClick}>Delete article</button>
                 ) : null}
               </div>
             ) : null}
@@ -63,6 +64,12 @@ class Article extends React.Component {
     this.setState(prevState => {
       const newVote = prevState.votes + direction;
       return { votes: newVote };
+    });
+  };
+
+  handleClick = () => {
+    deleteArticle(this.state.article.article_id).then(() => {
+      navigate(`/articles`);
     });
   };
 }
