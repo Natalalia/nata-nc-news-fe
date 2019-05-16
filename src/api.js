@@ -71,3 +71,9 @@ export const patchComment = (id, voteDirection) => {
     return comment;
   });
 };
+
+export const deleteComment = id => {
+  return Axios.delete(`${url}/comments/${id}`).then(({ data: { comment } }) => {
+    return comment;
+  });
+};

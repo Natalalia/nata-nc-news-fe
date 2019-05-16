@@ -11,6 +11,7 @@ class Comments extends React.Component {
     return (
       <div>
         <CommentsList
+          removeComment={this.removeComment}
           article_id={this.props.article_id}
           loggedInUser={this.props.loggedInUser}
           comments={this.state.comments}
@@ -33,6 +34,15 @@ class Comments extends React.Component {
   addComment = comment => {
     const newComments = this.state.comments.slice();
     newComments.push(comment);
+    this.setState({ comments: newComments });
+  };
+
+  removeComment = comment_id => {
+    const newComments = this.state.comments.slice();
+    const index = newComments.findIndex(
+      comment => comment.comment_id === comment_id
+    );
+    newComments.splice(index, 1);
     this.setState({ comments: newComments });
   };
 }

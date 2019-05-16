@@ -9,6 +9,7 @@ const CommentsList = props => {
           return (
             <li key={comment.comment_id}>
               <CommentCard
+                removeComment={props.removeComment}
                 comment={comment}
                 loggedInUser={props.loggedInUser}
               />

@@ -1,5 +1,5 @@
 import React from "react";
-import { patchComment } from "../api";
+import { patchComment, deleteComment } from "../api";
 
 class CommentCard extends React.Component {
   state = {
@@ -11,7 +11,7 @@ class CommentCard extends React.Component {
       <div>
         <span>{this.props.comment.author}</span>
         {this.props.loggedInUser === this.props.comment.author ? (
-          <button>Delete comment</button>
+          <button onClick={this.handleDelete}>Delete comment</button>
         ) : null}
         <span>{this.props.comment.created_at}</span>
         <p>{this.props.comment.body}</p>
@@ -38,6 +38,11 @@ class CommentCard extends React.Component {
       const newVote = prevState.votes + direction;
       return { votes: newVote, vote: direction };
     });
+  };
+
+  handleDelete = () => {
+    deleteComment(this.props.comment.comment_id);
+    this.props.removeComment(this.props.comment.comment_id);
   };
 }
 
