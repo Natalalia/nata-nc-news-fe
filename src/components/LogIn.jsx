@@ -51,7 +51,7 @@ class LogIn extends React.Component {
   };
 
   handleClick = () => {
-    this.setState({ userLogIn: "", isLoggedIn: false });
+    this.setState({ userLogIn: "", isLoggedIn: false, isExistingUser: true });
     this.props.onLogOut("");
   };
 }
