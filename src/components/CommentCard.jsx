@@ -19,13 +19,13 @@ class CommentCard extends React.Component {
           <div>
             <button
               onClick={e => this.handleVote(1)}
-              disabled={this.state.vote === 1 || this.state.vote === -1}
+              disabled={this.state.vote === 1}
             >
               like
             </button>
             <button
               onClick={() => this.handleVote(-1)}
-              disabled={this.state.vote === 1 || this.state.vote === -1}
+              disabled={this.state.vote === -1}
             >
               dislike
             </button>
@@ -41,8 +41,8 @@ class CommentCard extends React.Component {
   handleVote = direction => {
     patchComment(this.props.comment.comment_id, direction);
     this.setState(prevState => {
-      const newVote = prevState.votes + direction;
-      return { votes: newVote, vote: direction };
+      const newVote = prevState.vote + direction;
+      return { vote: newVote };
     });
   };
 

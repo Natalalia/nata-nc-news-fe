@@ -36,13 +36,13 @@ class Article extends React.Component {
               <div>
                 <button
                   onClick={e => this.handleVote(1)}
-                  disabled={this.state.votes === 1 || this.state.votes === -1}
+                  disabled={this.state.votes === 1}
                 >
                   like
                 </button>
                 <button
                   onClick={() => this.handleVote(-1)}
-                  disabled={this.state.votes === 1 || this.state.votes === -1}
+                  disabled={this.state.votes === -1}
                 >
                   dislike
                 </button>
