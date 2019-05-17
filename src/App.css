@@ -161,7 +161,28 @@ article .info a:hover {
   font-weight: bold;
 }
 
+.topicsList li.activeTopic {
+  color: rgb(101, 84, 179);
+  font-weight: bold;
+}
+
 .interactWithArticles {
   display: flex;
   justify-content: flex-end;
+}
+
+.authorsContainer {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+.authorItem {
+  margin: 2em;
+  padding: 1em;
+}
+
+.authorItem:hover {
+  border: solid 3px rgb(101, 84, 179);
 }

@@ -19,7 +19,7 @@ class Authors extends React.Component {
     return (
       <div>
         <AuthorsHeader />
-        <ul>
+        <ul className="authorsContainer">
           {this.state.authors.map(author => {
             return (
               <li key={author.username}>
