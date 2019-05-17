@@ -3,6 +3,7 @@ import { fetchArticle, patchArticle, deleteArticle } from "../api";
 import Comments from "./Comments";
 import { navigate } from "@reach/router";
 import ShowError from "./ShowError";
+import HandleVotes from "./HandleVotes";
 
 class Article extends React.Component {
   state = {
@@ -31,44 +32,14 @@ class Article extends React.Component {
             <span>Topic: {this.state.article.topic}</span>
             <span>{this.state.article.created_at}</span>
             <p>{this.state.article.body}</p>
-            <span>Votes:{this.state.article.votes + this.state.votes}</span>
-            {this.props.loggedInUser ? (
-              <div>
-                {this.state.votes === 1 ? (
-                  <button
-                    onClick={e => this.handleVote(-1)}
-                    disabled={this.state.votes === -1}
-                  >
-                    like
-                  </button>
-                ) : (
-                  <button
-                    onClick={e => this.handleVote(1)}
-                    disabled={this.state.votes === -1}
-                  >
-                    like
-                  </button>
-                )}
-                {this.state.votes === -1 ? (
-                  <button
-                    onClick={() => this.handleVote(1)}
-                    disabled={this.state.votes === 1}
-                  >
-                    dislike
-                  </button>
-                ) : (
-                  <button
-                    onClick={() => this.handleVote(-1)}
-                    disabled={this.state.votes === 1}
-                  >
-                    dislike
-                  </button>
-                )}
-
-                {this.props.loggedInUser === this.state.article.author ? (
-                  <button onClick={this.handleClick}>Delete article</button>
-                ) : null}
-              </div>
+            <HandleVotes
+              previousVotes={this.state.article.votes}
+              newVotes={this.state.votes}
+              loggedInUser={this.props.loggedInUser}
+              handleVote={this.handleVote}
+            />
+            {this.props.loggedInUser === this.state.article.author ? (
+              <button onClick={this.handleClick}>Delete article</button>
             ) : null}
             <span>Comments: {this.state.article.comment_count}</span>
           </article>

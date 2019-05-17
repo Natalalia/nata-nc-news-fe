@@ -1,4 +1,5 @@
 import React from "react";
+import HandleVotes from "./HandleVotes";
 import { patchComment, deleteComment } from "../api";
 
 class CommentCard extends React.Component {
@@ -12,44 +13,14 @@ class CommentCard extends React.Component {
 
         <span>{this.props.comment.created_at}</span>
         <p>{this.props.comment.body}</p>
-        <span>Votes: {this.props.comment.votes + this.state.votes}</span>
-        {this.props.loggedInUser ? (
-          <div>
-            {this.state.votes === 1 ? (
-              <button
-                onClick={e => this.handleVote(-1)}
-                disabled={this.state.votes === -1}
-              >
-                like
-              </button>
-            ) : (
-              <button
-                onClick={e => this.handleVote(1)}
-                disabled={this.state.votes === -1}
-              >
-                like
-              </button>
-            )}
-            {this.state.votes === -1 ? (
-              <button
-                onClick={() => this.handleVote(1)}
-                disabled={this.state.votes === 1}
-              >
-                dislike
-              </button>
-            ) : (
-              <button
-                onClick={() => this.handleVote(-1)}
-                disabled={this.state.votes === 1}
-              >
-                dislike
-              </button>
-            )}
-
-            {this.props.loggedInUser === this.props.comment.author ? (
-              <button onClick={this.handleDelete}>Delete comment</button>
-            ) : null}
-          </div>
+        <HandleVotes
+          previousVotes={this.props.comment.votes}
+          newVotes={this.state.votes}
+          loggedInUser={this.props.loggedInUser}
+          handleVote={this.handleVote}
+        />
+        {this.props.loggedInUser === this.props.comment.author ? (
+          <button onClick={this.handleDelete}>Delete comment</button>
         ) : null}
       </div>
     );
