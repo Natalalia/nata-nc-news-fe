@@ -3,8 +3,7 @@ import { patchComment, deleteComment } from "../api";
 
 class CommentCard extends React.Component {
   state = {
-    votes: this.props.comment.votes,
-    vote: 0
+    votes: 0
   };
   render() {
     return (
@@ -13,35 +12,35 @@ class CommentCard extends React.Component {
 
         <span>{this.props.comment.created_at}</span>
         <p>{this.props.comment.body}</p>
-        <span>Votes: {this.props.comment.votes + this.state.vote}</span>
+        <span>Votes: {this.props.comment.votes + this.state.votes}</span>
         {this.props.loggedInUser ? (
           <div>
-            {this.state.vote === 1 ? (
+            {this.state.votes === 1 ? (
               <button
                 onClick={e => this.handleVote(-1)}
-                disabled={this.state.vote === -1}
+                disabled={this.state.votes === -1}
               >
                 like
               </button>
             ) : (
               <button
                 onClick={e => this.handleVote(1)}
-                disabled={this.state.vote === -1}
+                disabled={this.state.votes === -1}
               >
                 like
               </button>
             )}
-            {this.state.vote === -1 ? (
+            {this.state.votes === -1 ? (
               <button
                 onClick={() => this.handleVote(1)}
-                disabled={this.state.vote === 1}
+                disabled={this.state.votes === 1}
               >
                 dislike
               </button>
             ) : (
               <button
                 onClick={() => this.handleVote(-1)}
-                disabled={this.state.vote === 1}
+                disabled={this.state.votes === 1}
               >
                 dislike
               </button>
@@ -59,8 +58,8 @@ class CommentCard extends React.Component {
   handleVote = direction => {
     patchComment(this.props.comment.comment_id, direction);
     this.setState(prevState => {
-      const newVote = prevState.vote + direction;
-      return { vote: newVote };
+      const newVote = prevState.votes + direction;
+      return { votes: newVote };
     });
   };
 
