@@ -17,6 +17,7 @@ const Header = props => {
           onLogIn={props.onLogIn}
           onLogOut={props.onLogOut}
           loggedInUser={props.loggedInUser}
+          avatar={props.avatar}
         />
       </div>
     </div>

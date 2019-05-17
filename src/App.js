@@ -14,7 +14,8 @@ import ShowError from "./components/ShowError";
 
 class App extends React.Component {
   state = {
-    loggedInUser: ""
+    loggedInUser: "",
+    avatar: null
   };
   render() {
     return (
@@ -24,6 +25,7 @@ class App extends React.Component {
             onLogIn={this.onLogIn}
             onLogOut={this.onLogOut}
             loggedInUser={this.state.loggedInUser}
+            avatar={this.state.avatar}
           />
           <Router>
             <Home path="/" loggedInUser={this.state.loggedInUser} />
@@ -48,21 +50,24 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    const storedState = localStorage.getItem("loggedInUser");
-    if (storedState) {
-      this.setState({ loggedInUser: storedState });
+    const storedUser = localStorage.getItem("loggedInUser");
+    const storedAvatar = localStorage.getItem("avatar");
+    if (storedUser && storedAvatar) {
+      this.setState({ loggedInUser: storedUser, avatar: storedAvatar });
     }
   }
 
-  onLogIn = username => {
-    this.setState({ loggedInUser: username }, () => {
+  onLogIn = (username, avatar_url) => {
+    this.setState({ loggedInUser: username, avatar: avatar_url }, () => {
       localStorage.setItem("loggedInUser", this.state.loggedInUser);
+      localStorage.setItem("avatar", this.state.avatar);
     });
   };
 
   onLogOut = () => {
     this.setState({ loggedInUser: "" }, () => {
       localStorage.setItem("loggedInUser", "");
+      localStorage.setItem("avatar", null);
     });
   };
 }

@@ -12,7 +12,8 @@ class LogIn extends React.Component {
     if (this.state.isLoggedIn || this.props.loggedInUser) {
       return (
         <div>
-          <p>You have logged in!</p>
+          <img alt="avatar" src={this.props.avatar} height="75" width="75" />
+          <p>You are logged in as {this.props.loggedInUser}</p>
           <button onClick={this.handleClick}>LOG OUT</button>
         </div>
       );
@@ -42,7 +43,7 @@ class LogIn extends React.Component {
     fetchUser(this.state.userLogIn)
       .then(user => {
         this.setState({ isLoggedIn: true });
-        this.props.onLogIn(user.username);
+        this.props.onLogIn(user.username, user.avatar_url);
       })
       .catch(() => {
         this.setState({ isExistingUser: false, isLoggedIn: false });
