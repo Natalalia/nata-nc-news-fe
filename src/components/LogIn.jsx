@@ -3,7 +3,7 @@ import { fetchUser } from "../api";
 
 class LogIn extends React.Component {
   state = {
-    userLogIn: "grumpy19",
+    userLogIn: null,
     isLoggedIn: false,
     isExistingUser: true
   };
@@ -21,12 +21,12 @@ class LogIn extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <label>Username:</label>
         <input
-          placeholder="grumpy19"
+          placeholder="ex: grumpy19"
           onChange={this.handleChange}
           type="text"
         />
         <button>LOG IN</button>
-        {!this.state.isExistingUser ? (
+        {!this.state.isExistingUser || this.state.isLoggedIn ? (
           <p>Please, enter a valid username!</p>
         ) : null}
       </form>
@@ -45,7 +45,7 @@ class LogIn extends React.Component {
         this.props.onLogIn(user.username);
       })
       .catch(() => {
-        this.setState({ isExistingUser: false });
+        this.setState({ isExistingUser: false, isLoggedIn: false });
       });
   };
 
