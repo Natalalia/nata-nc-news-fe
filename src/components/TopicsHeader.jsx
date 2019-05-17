@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "@reach/router";
 
-const TopicsHeader = props => {
+const TopicsHeader = ({ loggedInUser }) => {
   return (
     <div>
       <h2>TOPICS</h2>
-      {props.loggedInUser ? <Link to="/new-topic">Add New Topic</Link> : null}
+      {loggedInUser ? <Link to="/new-topic">Add New Topic</Link> : null}
     </div>
   );
 };

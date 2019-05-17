@@ -1,17 +1,17 @@
 import React from "react";
 import CommentCard from "./CommentCard";
 
-const CommentsList = props => {
+const CommentsList = ({ comments, removeComment, loggedInUser }) => {
   return (
     <div>
       <ul>
-        {props.comments.map(comment => {
+        {comments.map(comment => {
           return (
             <li key={comment.comment_id}>
               <CommentCard
-                removeComment={props.removeComment}
+                removeComment={removeComment}
                 comment={comment}
-                loggedInUser={props.loggedInUser}
+                loggedInUser={loggedInUser}
               />
             </li>
           );

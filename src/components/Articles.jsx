@@ -85,10 +85,10 @@ class Articles extends React.Component {
       topic: this.state.topic,
       author: this.state.author
     })
-      .then(data => {
+      .then(({ articles, total_count }) => {
         this.setState({
-          articles: data.articles,
-          total_count: data.total_count,
+          articles,
+          total_count,
           loading: false
         });
       })

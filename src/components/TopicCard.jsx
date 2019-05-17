@@ -1,10 +1,10 @@
 import React from "react";
 
-const TopicCard = props => {
+const TopicCard = ({ listTopic }) => {
   return (
     <div>
-      <h4>{props.listTopic.slug.toUpperCase()}</h4>
-      <p>{props.listTopic.description}</p>
+      <h4>{listTopic.slug.toUpperCase()}</h4>
+      <p>{listTopic.description}</p>
     </div>
   );
 };

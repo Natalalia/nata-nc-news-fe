@@ -2,7 +2,7 @@ import React from "react";
 import LogIn from "./LogIn";
 import { Link } from "@reach/router";
 
-const Header = props => {
+const Header = ({ onLogIn, onLogOut, loggedInUser, avatar }) => {
   return (
     <div>
       <h1>Nata NC News</h1>
@@ -14,10 +14,10 @@ const Header = props => {
           <Link to="/authors">Authors</Link>
         </nav>
         <LogIn
-          onLogIn={props.onLogIn}
-          onLogOut={props.onLogOut}
-          loggedInUser={props.loggedInUser}
-          avatar={props.avatar}
+          onLogIn={onLogIn}
+          onLogOut={onLogOut}
+          loggedInUser={loggedInUser}
+          avatar={avatar}
         />
       </div>
     </div>
