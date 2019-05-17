@@ -1,11 +1,14 @@
 import React from "react";
 
-const ShowError = props => {
-  return (
-    <p>
-      {props.status}:{props.message}
-    </p>
-  );
+const ShowError = ({ status, message }) => {
+  if (status && message) {
+    return (
+      <p>
+        {status}:{message}
+      </p>
+    );
+  }
+  return <p>Bad Url</p>;
 };
 
 export default ShowError;
