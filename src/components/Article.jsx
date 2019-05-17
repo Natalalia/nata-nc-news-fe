@@ -34,18 +34,37 @@ class Article extends React.Component {
             <span>Votes:{this.state.article.votes + this.state.votes}</span>
             {this.props.loggedInUser ? (
               <div>
-                <button
-                  onClick={e => this.handleVote(1)}
-                  disabled={this.state.votes === 1}
-                >
-                  like
-                </button>
-                <button
-                  onClick={() => this.handleVote(-1)}
-                  disabled={this.state.votes === -1}
-                >
-                  dislike
-                </button>
+                {this.state.votes === 1 ? (
+                  <button
+                    onClick={e => this.handleVote(-1)}
+                    disabled={this.state.votes === -1}
+                  >
+                    like
+                  </button>
+                ) : (
+                  <button
+                    onClick={e => this.handleVote(1)}
+                    disabled={this.state.votes === -1}
+                  >
+                    like
+                  </button>
+                )}
+                {this.state.votes === -1 ? (
+                  <button
+                    onClick={() => this.handleVote(1)}
+                    disabled={this.state.votes === 1}
+                  >
+                    dislike
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => this.handleVote(-1)}
+                    disabled={this.state.votes === 1}
+                  >
+                    dislike
+                  </button>
+                )}
+
                 {this.props.loggedInUser === this.state.article.author ? (
                   <button onClick={this.handleClick}>Delete article</button>
                 ) : null}
