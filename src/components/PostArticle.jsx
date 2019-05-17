@@ -13,6 +13,9 @@ class PostArticle extends React.Component {
     if (this.state.loading) {
       return <p>Loading...</p>;
     }
+    if (!this.state.author) {
+      navigate("/");
+    }
     return (
       <div>
         <p>By: {this.state.author}</p>
