@@ -11,7 +11,6 @@ class Articles extends React.Component {
     p: 1,
     sort_by: null,
     topic: null,
-    author: this.props.author,
     loading: true,
     error: false
   };
@@ -72,7 +71,7 @@ class Articles extends React.Component {
       prevState.p !== this.state.p ||
       prevState.sort_by !== this.state.sort_by ||
       prevState.topic !== this.state.topic ||
-      prevState.author !== this.state.author
+      prevProps.author !== this.props.author
     ) {
       this.fetchArticles();
     }
@@ -83,7 +82,7 @@ class Articles extends React.Component {
       p: this.state.p,
       sort_by: this.state.sort_by,
       topic: this.state.topic,
-      author: this.state.author
+      author: this.props.author
     })
       .then(({ articles, total_count }) => {
         this.setState({
