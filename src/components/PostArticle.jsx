@@ -1,12 +1,12 @@
 import React from "react";
-import { submitArticle } from "../api";
+import { submitArticle, getTopics } from "../api";
 import { navigate } from "@reach/router";
 
 class PostArticle extends React.Component {
   state = {
     title: "",
     body: "",
-    topic: null,
+    topics: [],
     loading: true
   };
   render() {
@@ -33,9 +33,11 @@ class PostArticle extends React.Component {
             onChange={e => this.handleChange("topic", e.target.value)}
           >
             <option value="">----</option>
-            <option value="coding">Coding</option>
-            <option value="cooking">Cooking</option>
-            <option value="football">Football</option>
+            {this.state.topics.map(topic => {
+              return (
+                <option value={topic.slug}>{topic.slug.toLowerCase()}</option>
+              );
+            })}
           </select>
           <textarea
             required
@@ -49,7 +51,13 @@ class PostArticle extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({ loading: false });
+    getTopics()
+      .then(topics => {
+        this.setState({ topics, loading: false });
+      })
+      .catch(() => {
+        this.setState({ error: true, loading: false });
+      });
   }
 
   handleChange = (key, value) => {
