@@ -3,7 +3,7 @@ import { fetchUser } from "../api";
 
 class LogIn extends React.Component {
   state = {
-    userLogIn: "",
+    userLogIn: "grumpy19",
     isLoggedIn: false,
     isExistingUser: true
   };
@@ -21,8 +21,7 @@ class LogIn extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <label>Username:</label>
         <input
-          placeholder="cooljmessy"
-          value={this.state.userLogIn}
+          placeholder="grumpy19"
           onChange={this.handleChange}
           type="text"
         />
