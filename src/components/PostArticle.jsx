@@ -13,12 +13,12 @@ class PostArticle extends React.Component {
     if (this.state.loading) {
       return <p>Loading...</p>;
     }
-    if (!this.state.author) {
+    if (!this.props.loggedInUser) {
       navigate("/");
     }
     return (
       <div>
-        <p>By: {this.state.author}</p>
+        <p>By: {this.props.loggedInUser}</p>
         <form onSubmit={this.handleSubmit}>
           <label>Title:</label>
           <input
@@ -49,7 +49,7 @@ class PostArticle extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({ author: this.props.loggedInUser, loading: false });
+    this.setState({ loading: false });
   }
 
   handleChange = (key, value) => {

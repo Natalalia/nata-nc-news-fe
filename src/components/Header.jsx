@@ -13,7 +13,11 @@ const Header = props => {
           <Link to="/topics">Topics</Link>
           <Link to="/authors">Authors</Link>
         </nav>
-        <LogIn onLogIn={props.onLogIn} onLogOut={props.onLogOut} />
+        <LogIn
+          onLogIn={props.onLogIn}
+          onLogOut={props.onLogOut}
+          loggedInUser={props.loggedInUser}
+        />
       </div>
     </div>
   );

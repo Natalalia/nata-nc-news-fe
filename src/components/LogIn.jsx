@@ -9,7 +9,7 @@ class LogIn extends React.Component {
   };
 
   render() {
-    if (this.state.isLoggedIn) {
+    if (this.state.isLoggedIn || this.props.loggedInUser) {
       return (
         <div>
           <p>You have logged in!</p>

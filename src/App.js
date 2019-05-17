@@ -20,7 +20,11 @@ class App extends React.Component {
     return (
       <div className="App">
         <div className="site-container">
-          <Header onLogIn={this.onLogIn} onLogOut={this.onLogOut} />
+          <Header
+            onLogIn={this.onLogIn}
+            onLogOut={this.onLogOut}
+            loggedInUser={this.state.loggedInUser}
+          />
           <Router>
             <Home path="/" loggedInUser={this.state.loggedInUser} />
             <Articles path="/articles" loggedInUser={this.state.loggedInUser} />
@@ -43,12 +47,23 @@ class App extends React.Component {
     );
   }
 
+  componentDidMount() {
+    const storedState = localStorage.getItem("loggedInUser");
+    if (storedState) {
+      this.setState({ loggedInUser: storedState });
+    }
+  }
+
   onLogIn = username => {
-    this.setState({ loggedInUser: username });
+    this.setState({ loggedInUser: username }, () => {
+      localStorage.setItem("loggedInUser", this.state.loggedInUser);
+    });
   };
 
   onLogOut = () => {
-    this.setState({ loggedInUser: "" });
+    this.setState({ loggedInUser: "" }, () => {
+      localStorage.setItem("loggedInUser", "");
+    });
   };
 }
 
