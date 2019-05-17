@@ -48,6 +48,10 @@ class PostArticle extends React.Component {
     );
   }
 
+  componentDidMount() {
+    this.setState({ author: this.props.loggedInUser, loading: false });
+  }
+
   handleChange = (key, value) => {
     this.setState({ [key]: value });
   };
@@ -63,10 +67,6 @@ class PostArticle extends React.Component {
       navigate(`/articles/${article.article_id}`);
     });
   };
-
-  componentDidMount() {
-    this.setState({ author: this.props.loggedInUser, loading: false });
-  }
 }
 
 export default PostArticle;

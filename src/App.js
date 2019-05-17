@@ -33,7 +33,7 @@ class App extends React.Component {
               path="/new-article"
               loggedInUser={this.state.loggedInUser}
             />
-            <AddTopic path="new-topic" />
+            <AddTopic path="new-topic" loggedInUser={this.state.loggedInUser} />
             <Authors path="/authors" />
             <AuthorArticles path="/author/articles" />
             <ShowError default />

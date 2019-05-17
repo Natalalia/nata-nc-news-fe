@@ -5,9 +5,16 @@ import { navigate } from "@reach/router";
 class AddTopic extends React.Component {
   state = {
     slug: "",
-    description: ""
+    description: "",
+    loading: true
   };
   render() {
+    if (this.state.loading) {
+      return <p>Loading...</p>;
+    }
+    if (!this.state.loggedInUser) {
+      navigate("/");
+    }
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -30,6 +37,11 @@ class AddTopic extends React.Component {
       </div>
     );
   }
+
+  componentDidMount() {
+    this.setState({ loggedInUser: this.props.loggedInUser, loading: false });
+  }
+
   handleChange = (key, value) => {
     this.setState({ [key]: value });
   };
