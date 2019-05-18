@@ -9,15 +9,8 @@ class ArticleCard extends React.Component {
   };
 
   render() {
-    if (this.state.loading === true) {
+    if (this.state.loading) {
       return <p>Loading ...</p>;
-    }
-    let bodyPreview = "";
-    if (!this.state.loading) {
-      const body = this.state.article.body;
-      const bodyArray = body.split(" ");
-      const bodyPreviewArray = bodyArray.slice(0, 25);
-      bodyPreview = bodyPreviewArray.join(" ");
     }
     return (
       <article className="articlesBrief">
@@ -39,7 +32,7 @@ class ArticleCard extends React.Component {
           <span>{this.props.listElement.topic.toUpperCase()}</span>
           <span>{this.props.listElement.created_at}</span>
         </div>
-        <p>{bodyPreview}...</p>
+        <p>{this.createPreview()}...</p>
         <div className="opinions">
           <span>Votes:{this.props.listElement.votes}</span>
           <span>Comments:{this.props.listElement.comment_count}</span>
@@ -52,6 +45,13 @@ class ArticleCard extends React.Component {
     fetchArticle(this.props.listElement.article_id).then(article => {
       this.setState({ article, loading: false });
     });
+  }
+
+  createPreview() {
+    const body = this.state.article.body;
+    const bodyArray = body.split(" ");
+    const bodyPreviewArray = bodyArray.slice(0, 25);
+    return bodyPreviewArray.join(" ");
   }
 }
 
