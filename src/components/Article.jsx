@@ -8,7 +8,6 @@ import HandleVotes from "./HandleVotes";
 class Article extends React.Component {
   state = {
     article: {},
-    votes: 0,
     errorStatus: null,
     errorMsg: null,
     loading: true
@@ -34,9 +33,8 @@ class Article extends React.Component {
             <p>{this.state.article.body}</p>
             <HandleVotes
               previousVotes={this.state.article.votes}
-              newVotes={this.state.votes}
               loggedInUser={this.props.loggedInUser}
-              handleVote={this.handleVote}
+              onVote={this.modifyArticle}
             />
             {this.props.loggedInUser === this.state.article.author ? (
               <button onClick={this.handleClick}>Delete article</button>
@@ -67,12 +65,8 @@ class Article extends React.Component {
       });
   }
 
-  handleVote = direction => {
+  modifyArticle = direction => {
     patchArticle(this.state.article.article_id, direction);
-    this.setState(prevState => {
-      const newVote = prevState.votes + direction;
-      return { votes: newVote };
-    });
   };
 
   handleClick = () => {
