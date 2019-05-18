@@ -10,11 +10,11 @@ class PostArticle extends React.Component {
     loading: true
   };
   render() {
+    if (!this.props.loggedInUser) {
+      return <p>You must be logged in to post an article</p>;
+    }
     if (this.state.loading) {
       return <p>Loading...</p>;
-    }
-    if (!this.props.loggedInUser) {
-      navigate("/");
     }
     return (
       <div>

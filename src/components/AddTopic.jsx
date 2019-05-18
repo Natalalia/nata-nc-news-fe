@@ -5,15 +5,11 @@ import { navigate } from "@reach/router";
 class AddTopic extends React.Component {
   state = {
     slug: "",
-    description: "",
-    loading: true
+    description: ""
   };
   render() {
-    if (!this.state.loggedInUser) {
-      navigate("/");
-    }
-    if (this.state.loading) {
-      return <p>Loading...</p>;
+    if (!this.props.loggedInUser) {
+      return <p>You must be logged in to add a topic</p>;
     }
     return (
       <div>
@@ -38,13 +34,10 @@ class AddTopic extends React.Component {
     );
   }
 
-  componentDidMount() {
-    this.setState({ loggedInUser: this.props.loggedInUser, loading: false });
-  }
-
   handleChange = (key, value) => {
     this.setState({ [key]: value });
   };
+
   handleSubmit = event => {
     event.preventDefault();
     submitTopic({
