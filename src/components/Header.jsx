@@ -9,7 +9,6 @@ const Header = ({ onLogIn, onLogOut, loggedInUser, avatar }) => {
       <div className="menu">
         <nav>
           <Link to="/">Home</Link>
-          <Link to="/articles">Articles</Link>
           <Link to="/topics">Topics</Link>
           <Link to="/authors">Authors</Link>
         </nav>

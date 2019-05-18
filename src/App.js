@@ -2,7 +2,6 @@ import React from "react";
 import "./App.css";
 import { Router } from "@reach/router";
 import Header from "./components/Header";
-import Home from "./components/Home";
 import Articles from "./components/Articles";
 import Article from "./components/Article";
 import PostArticle from "./components/PostArticle";
@@ -28,8 +27,7 @@ class App extends React.Component {
             avatar={this.state.avatar}
           />
           <Router>
-            <Home path="/" loggedInUser={this.state.loggedInUser} />
-            <Articles path="/articles" loggedInUser={this.state.loggedInUser} />
+            <Articles path="/" loggedInUser={this.state.loggedInUser} />
             <Article
               path="/articles/:article_id"
               loggedInUser={this.state.loggedInUser}
