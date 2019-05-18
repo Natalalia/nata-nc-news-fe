@@ -126,6 +126,7 @@ article .info a:hover {
 .menu {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .menu a {
@@ -185,4 +186,20 @@ article .info a:hover {
 
 .authorItem:hover {
   border: solid 3px rgb(101, 84, 179);
+}
+
+@media only screen and (max-width: 768px) {
+  body {
+    background-color: rgb(236, 243, 240);
+  }
+  .previewArticlesContainer {
+    flex-wrap: wrap;
+  }
+  article {
+    padding: 1rem;
+    margin: 4rem 0;
+  }
+  .App {
+    margin: 0 10px;
+  }
 }
