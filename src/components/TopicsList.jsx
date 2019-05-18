@@ -19,6 +19,12 @@ class TopicsList extends React.Component {
       <div>
         <h3 className="topicsListHeader">TOPICS:</h3>
         <ul className="topicsList">
+          <li
+            className={!this.state.selectedTopic ? "activeTopic" : null}
+            onClick={() => this.handleClick(null)}
+          >
+            ALL
+          </li>
           {this.state.topics.map((topic, i) => {
             return (
               <li
