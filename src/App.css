@@ -141,6 +141,24 @@ article .info a:hover {
   font-weight: bold;
 }
 
+.userLoggedIn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.userLoggedIn img {
+  padding: 10px;
+}
+
+.userLoggedIn p {
+  padding: 10px;
+}
+
+.userLoggedIn button {
+  height: 50%;
+}
+
 .previewArticlesContainer {
   display: grid;
   grid-template-columns: 20% 80%;

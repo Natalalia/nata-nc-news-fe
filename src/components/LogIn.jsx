@@ -11,10 +11,12 @@ class LogIn extends React.Component {
   render() {
     if (this.state.isLoggedIn || this.props.loggedInUser) {
       return (
-        <div>
-          <img alt="avatar" src={this.props.avatar} height="75" width="75" />
-          <p>You are logged in as {this.props.loggedInUser}</p>
-          <button onClick={this.handleClick}>LOG OUT</button>
+        <div className="userLoggedIn">
+          <img alt="avatar" src={this.props.avatar} height="50" width="50" />
+          <p>{this.props.loggedInUser}</p>
+          <button className="postButton" onClick={this.handleClick}>
+            LOG OUT
+          </button>
         </div>
       );
     }
