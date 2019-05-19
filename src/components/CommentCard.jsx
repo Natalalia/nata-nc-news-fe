@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "@reach/router";
 import HandleVotes from "./HandleVotes";
 import { patchComment, deleteComment } from "../api";
 import dayjs from "dayjs";
@@ -16,7 +17,9 @@ const CommentCard = props => {
   return (
     <div className="commentCard">
       <div className="info">
-        <span>{props.comment.author}</span>
+        <Link to={`/users/${props.comment.author}/articles`}>
+          {props.comment.author}
+        </Link>
         <span>{dayjs(props.comment.created_at).format("DD/MM/YYYY")}</span>
       </div>
       <p>{props.comment.body}</p>

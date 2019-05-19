@@ -78,12 +78,11 @@ input {
 
 article {
   border: solid 3px #000000;
-  padding: 4rem;
+  padding: 1rem 4rem;
   margin: 4rem 0;
 }
 
 article.articlesBrief {
-  padding-top: 1rem;
   background-color: rgb(227, 223, 247);
 }
 
@@ -264,7 +263,7 @@ article .info a:hover {
 
 .commentCard {
   border: solid 3px #000000;
-  padding: 1rem;
+  padding: 0 1rem 1rem 1rem;
   background-color: rgb(227, 223, 247);
 }
 
@@ -272,6 +271,14 @@ article .info a:hover {
   padding: 2rem;
   display: flex;
   justify-content: space-evenly;
+}
+
+.commentCard .info a {
+  font-weight: bold;
+}
+
+.commentCard .info a:hover {
+  text-decoration: underline;
 }
 
 .topicsContainer {
