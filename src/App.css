@@ -275,6 +275,7 @@ article .info a:hover {
 }
 
 .postFields {
+  margin-top: 30px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 25px 25px auto auto;
@@ -313,6 +314,41 @@ article .info a:hover {
   grid-column-end: 3;
   display: flex;
   justify-self: center;
+}
+
+.topicForm {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
+}
+
+.topicInput {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  display: flex;
+  justify-content: space-between;
+}
+
+.descriptionInput {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  display: flex;
+  justify-content: space-between;
+}
+
+.topicForm .submitButtonGrid {
+  grid-row-start: 3;
+  grid-row-end: 4;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  display: flex;
+  justify-self: end;
 }
 
 @media only screen and (max-width: 768px) {

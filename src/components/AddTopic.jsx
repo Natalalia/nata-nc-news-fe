@@ -13,22 +13,26 @@ class AddTopic extends React.Component {
     }
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <label>Topic:</label>
-          <input
-            required
-            value={this.state.slug}
-            onChange={e => this.handleChange("slug", e.target.value)}
-          />
-          <br />
-          <label>Description:</label>
-          <input
-            required
-            value={this.state.description}
-            onChange={e => this.handleChange("description", e.target.value)}
-          />
-          <br />
-          <button>Add New Topic!</button>
+        <form onSubmit={this.handleSubmit} className="topicForm">
+          <div className="topicInput">
+            <label>Topic:</label>
+            <input
+              required
+              value={this.state.slug}
+              onChange={e => this.handleChange("slug", e.target.value)}
+            />
+          </div>
+          <div className="descriptionInput">
+            <label>Description:</label>
+            <input
+              required
+              value={this.state.description}
+              onChange={e => this.handleChange("description", e.target.value)}
+            />
+          </div>
+          <button className="submitButtonGrid postButton">
+            Add New Topic!
+          </button>
         </form>
       </div>
     );
