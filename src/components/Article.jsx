@@ -28,21 +28,27 @@ class Article extends React.Component {
         <div>
           <article>
             <h2>{this.state.article.title}</h2>
-            <span>By: {this.state.article.author}</span>
-            <span>Topic: {this.state.article.topic}</span>
-            <span>
-              {dayjs(this.state.article.created_at).format("DD/MM/YYYY")}
-            </span>
+            <div className="info">
+              <span>By: {this.state.article.author}</span>
+              <span>Topic: {this.state.article.topic}</span>
+              <span>
+                {dayjs(this.state.article.created_at).format("DD/MM/YYYY")}
+              </span>
+            </div>
             <p>{this.state.article.body}</p>
-            <HandleVotes
-              previousVotes={this.state.article.votes}
-              loggedInUser={this.props.loggedInUser}
-              onVote={this.modifyArticle}
-            />
-            {this.props.loggedInUser === this.state.article.author ? (
-              <button onClick={this.handleClick}>Delete article</button>
-            ) : null}
-            <span>Comments: {this.state.article.comment_count}</span>
+            <div className="info">
+              <HandleVotes
+                previousVotes={this.state.article.votes}
+                loggedInUser={this.props.loggedInUser}
+                onVote={this.modifyArticle}
+              />
+              {this.props.loggedInUser === this.state.article.author ? (
+                <button className="postButton" onClick={this.handleClick}>
+                  Delete article
+                </button>
+              ) : null}
+              <span>Comments: {this.state.article.comment_count}</span>
+            </div>
           </article>
           <h3>COMMENTS:</h3>
           <Comments

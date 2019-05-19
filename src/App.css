@@ -264,8 +264,14 @@ article .info a:hover {
 
 .commentCard {
   border: solid 3px #000000;
-  padding-top: 1rem;
+  padding: 1rem;
   background-color: rgb(227, 223, 247);
+}
+
+.commentCard .info {
+  padding: 2rem;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .topicsContainer {

@@ -15,8 +15,10 @@ const CommentCard = props => {
 
   return (
     <div className="commentCard">
-      <span>{props.comment.author}</span>
-      <span>{dayjs(props.comment.created_at).format("DD/MM/YYYY")}</span>
+      <div className="info">
+        <span>{props.comment.author}</span>
+        <span>{dayjs(props.comment.created_at).format("DD/MM/YYYY")}</span>
+      </div>
       <p>{props.comment.body}</p>
       <HandleVotes
         previousVotes={props.comment.votes}
