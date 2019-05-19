@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "@reach/router";
 import { fetchArticle } from "../api";
+import dayjs from "dayjs";
 
 class ArticleCard extends React.Component {
   state = {
@@ -30,7 +31,9 @@ class ArticleCard extends React.Component {
             {this.props.listElement.author}
           </Link>
           <span>{this.props.listElement.topic.toUpperCase()}</span>
-          <span>{this.props.listElement.created_at}</span>
+          <span>
+            {dayjs(this.props.listElement.created_at).format("DD/MM/YYYY")}
+          </span>
         </div>
         <p>{this.createPreview()}...</p>
         <div className="opinions">

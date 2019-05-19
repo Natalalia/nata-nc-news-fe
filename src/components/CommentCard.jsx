@@ -1,6 +1,7 @@
 import React from "react";
 import HandleVotes from "./HandleVotes";
 import { patchComment, deleteComment } from "../api";
+import dayjs from "dayjs";
 
 const CommentCard = props => {
   const modifyComment = direction => {
@@ -15,7 +16,7 @@ const CommentCard = props => {
   return (
     <div className="commentCard">
       <span>{props.comment.author}</span>
-      <span>{props.comment.created_at}</span>
+      <span>{dayjs(props.comment.created_at).format("DD/MM/YYYY")}</span>
       <p>{props.comment.body}</p>
       <HandleVotes
         previousVotes={props.comment.votes}
