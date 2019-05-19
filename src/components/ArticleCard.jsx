@@ -22,12 +22,7 @@ class ArticleCard extends React.Component {
           {this.props.listElement.title}
         </Link>
         <div className="info">
-          <Link
-            to="/author/articles"
-            state={{
-              author: this.props.listElement.author
-            }}
-          >
+          <Link to={`/users/${this.props.listElement.author}/articles`}>
             {this.props.listElement.author}
           </Link>
           <span>{this.props.listElement.topic.toUpperCase()}</span>

@@ -3,12 +3,7 @@ import { Link } from "@reach/router";
 
 const AuthorCard = ({ listAuthor }) => {
   return (
-    <Link
-      to="/author/articles"
-      state={{
-        author: listAuthor.username
-      }}
-    >
+    <Link to={`/users/${listAuthor.username}/articles`}>
       <div className="authorItem">
         <img
           alt="avatar"
