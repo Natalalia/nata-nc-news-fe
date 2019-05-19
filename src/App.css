@@ -167,6 +167,10 @@ article .info a:hover {
   font-weight: bold;
 }
 
+.scrollDownTopicList {
+  display: none;
+}
+
 .interactWithArticles {
   display: flex;
   justify-content: flex-end;
@@ -201,5 +205,14 @@ article .info a:hover {
   }
   .App {
     margin: 0 10px;
+  }
+  .topicsList {
+    display: none;
+  }
+  .topicsListHeader {
+    display: none;
+  }
+  .scrollDownTopicList {
+    display: contents;
   }
 }

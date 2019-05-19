@@ -39,6 +39,20 @@ class TopicsList extends React.Component {
             );
           })}
         </ul>
+        <div className="scrollDownTopicList">
+          <label>Topic:</label>
+          <select
+            value={this.state.selectedTopic}
+            onChange={e => this.handleChange(e.target.value)}
+          >
+            <option value="">----</option>
+            {this.state.topics.map(topic => {
+              return (
+                <option value={topic.slug}>{topic.slug.toLowerCase()}</option>
+              );
+            })}
+          </select>
+        </div>
       </div>
     );
   }
@@ -54,6 +68,11 @@ class TopicsList extends React.Component {
   }
 
   handleClick = slug => {
+    this.props.onSelect(slug);
+    this.setState({ selectedTopic: slug });
+  };
+
+  handleChange = slug => {
     this.props.onSelect(slug);
     this.setState({ selectedTopic: slug });
   };
