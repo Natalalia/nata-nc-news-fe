@@ -28,16 +28,18 @@ class Articles extends React.Component {
           author={this.props.author}
         />
         <div className="previewArticlesContainer">
-          <TopicsList onSelect={this.onSelect} />
-          <div>
-            <div className="interactWithArticles">
-              <label>Order by:</label>
-              <select onClick={e => this.handleClick(e.target.value)}>
-                <option value="created_at">date created</option>
-                <option value="comment_count">number of comments</option>
-                <option value="votes">number of votes</option>
-              </select>
-            </div>
+          <div className="topicsGrid">
+            <TopicsList onSelect={this.onSelect} />
+          </div>
+          <div className="interactWithArticles orderByGrid">
+            <label>Order by:</label>
+            <select onClick={e => this.handleClick(e.target.value)}>
+              <option value="created_at">date created</option>
+              <option value="comment_count">number of comments</option>
+              <option value="votes">number of votes</option>
+            </select>
+          </div>
+          <div className="articlesGrid">
             <ArticlesList list={this.state.articles} />
             <button
               onClick={() => {
