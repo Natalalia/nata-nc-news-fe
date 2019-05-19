@@ -103,12 +103,16 @@ class Articles extends React.Component {
 
   onSelect = topic => {
     this.setState({ topic, p: 1 });
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
   };
 
   changePage = direction => {
     this.setState(prevState => {
       return { p: prevState.p + direction };
     });
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
   };
 }
 
