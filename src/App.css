@@ -39,6 +39,10 @@ a {
   text-decoration-line: none;
 }
 
+ul {
+  padding: 0;
+}
+
 p,
 label,
 li,
@@ -252,6 +256,18 @@ article .info a:hover {
   border: solid 3px rgb(101, 84, 179);
 }
 
+.commentsContainer {
+  display: grid;
+  grid-gap: 10px;
+  align-self: center;
+}
+
+.commentCard {
+  border: solid 3px #000000;
+  padding-top: 1rem;
+  background-color: rgb(227, 223, 247);
+}
+
 .topicsContainer {
   display: flex;
   justify-content: center;
@@ -395,6 +411,7 @@ article .info a:hover {
   article {
     padding: 1rem;
     margin: 4rem 0;
+    background-color: rgb(227, 223, 247);
   }
 
   .App {

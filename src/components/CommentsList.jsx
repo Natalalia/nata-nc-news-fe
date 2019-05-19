@@ -4,7 +4,7 @@ import CommentCard from "./CommentCard";
 const CommentsList = ({ comments, removeComment, loggedInUser }) => {
   return (
     <div>
-      <ul>
+      <ul className="commentsContainer">
         {comments.map(comment => {
           return (
             <li key={comment.comment_id}>

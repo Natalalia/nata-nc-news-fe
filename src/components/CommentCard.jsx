@@ -13,7 +13,7 @@ const CommentCard = props => {
   };
 
   return (
-    <div>
+    <div className="commentCard">
       <span>{props.comment.author}</span>
       <span>{props.comment.created_at}</span>
       <p>{props.comment.body}</p>
