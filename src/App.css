@@ -79,6 +79,7 @@ article {
 
 article.articlesBrief {
   padding-top: 1rem;
+  background-color: rgb(236, 243, 240);
 }
 
 article h2 {
@@ -258,10 +259,6 @@ article .info a:hover {
 }
 
 @media only screen and (max-width: 768px) {
-  body {
-    background-color: rgb(236, 243, 240);
-  }
-
   .previewArticlesContainer {
     flex-wrap: wrap;
   }

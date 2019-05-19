@@ -3,9 +3,15 @@ import { Link } from "@reach/router";
 
 const TopicsHeader = ({ loggedInUser }) => {
   return (
-    <div>
-      <h2>TOPICS</h2>
-      {loggedInUser ? <Link to="/new-topic">Add New Topic</Link> : null}
+    <div className="header">
+      <h2 className="titleHeader">TOPICS</h2>
+      <div className="postButtonGrid">
+        {loggedInUser ? (
+          <Link className="postButton" to="/new-topic">
+            Add New Topic
+          </Link>
+        ) : null}
+      </div>
     </div>
   );
 };
