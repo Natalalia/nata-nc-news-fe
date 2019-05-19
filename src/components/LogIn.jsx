@@ -13,7 +13,7 @@ class LogIn extends React.Component {
       return (
         <div className="userLoggedIn">
           <img alt="avatar" src={this.props.avatar} height="50" width="50" />
-          <p>{this.props.loggedInUser}</p>
+          <span>{this.props.loggedInUser}</span>
           <button className="postButton" onClick={this.handleClick}>
             LOG OUT
           </button>

@@ -44,6 +44,7 @@ label,
 li,
 button,
 a,
+span,
 select {
   font-family: "Dosis", sans-serif;
 }
@@ -150,7 +151,7 @@ article .info a:hover {
   padding: 10px;
 }
 
-.userLoggedIn p {
+.userLoggedIn span {
   padding: 10px;
 }
 
@@ -160,11 +161,10 @@ article .info a:hover {
 
 .logIn {
   display: flex;
-  align-items: center;
 }
 
 .logIn input {
-  margin: 10px;
+  margin: 0 10px;
 }
 
 .logIn button {
