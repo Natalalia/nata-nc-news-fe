@@ -19,7 +19,7 @@ class Topics extends React.Component {
     return (
       <div>
         <TopicsHeader loggedInUser={this.props.loggedInUser} />
-        <ul>
+        <ul className="topicsContainer">
           {this.state.topics.map(topic => {
             return (
               <li key={topic.slug}>

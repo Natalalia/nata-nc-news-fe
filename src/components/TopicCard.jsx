@@ -2,7 +2,7 @@ import React from "react";
 
 const TopicCard = ({ listTopic }) => {
   return (
-    <div>
+    <div className="topicItem">
       <h4>{listTopic.slug.toUpperCase()}</h4>
       <p>{listTopic.description}</p>
     </div>

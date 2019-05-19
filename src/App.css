@@ -79,7 +79,7 @@ article {
 
 article.articlesBrief {
   padding-top: 1rem;
-  background-color: rgb(236, 243, 240);
+  background-color: rgb(227, 223, 247);
 }
 
 article h2 {
@@ -202,7 +202,7 @@ article .info a:hover {
 
 .authorsContainer {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   flex-wrap: wrap;
   padding: 0;
 }
@@ -214,6 +214,20 @@ article .info a:hover {
 
 .authorItem:hover {
   border: solid 3px rgb(101, 84, 179);
+}
+
+.topicsContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+.topicItem {
+  margin: 1em;
+  padding: 1em;
+  border: solid 3px #000000;
+  background-color: rgb(227, 223, 247);
 }
 
 .header {
@@ -242,7 +256,7 @@ article .info a:hover {
 .postButton {
   display: inline-block;
   padding: 0.35em 1.2em;
-  border: 0.1em solid #646262;
+  border: 0.1em solid rgb(64, 64, 64);
   margin: 0 0.3em 0.3em 0;
   border-radius: 0.12em;
   box-sizing: border-box;
@@ -255,7 +269,7 @@ article .info a:hover {
 
 .postButton:hover {
   color: #fff;
-  background-color: #646262;
+  background-color: rgb(64, 64, 64);
 }
 
 @media only screen and (max-width: 768px) {
