@@ -263,13 +263,56 @@ article .info a:hover {
   text-decoration: none;
   font-weight: 300;
   color: #000000;
+  background-color: #fff;
   text-align: center;
   transition: all 0.2s;
+  cursor: pointer;
 }
 
 .postButton:hover {
   color: #fff;
   background-color: rgb(64, 64, 64);
+}
+
+.postFields {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 25px 25px auto auto;
+  grid-gap: 10px;
+}
+
+.titlePost {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  display: flex;
+  justify-self: left;
+}
+
+.chooseTopicOnPost {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  display: flex;
+  justify-self: left;
+}
+
+.writeArticleArea {
+  grid-row-start: 3;
+  grid-row-end: 4;
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+
+.submitButtonGrid {
+  grid-row-start: 4;
+  grid-row-end: 5;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  display: flex;
+  justify-self: center;
 }
 
 @media only screen and (max-width: 768px) {

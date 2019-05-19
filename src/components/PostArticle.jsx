@@ -17,15 +17,16 @@ class PostArticle extends React.Component {
       return <p>Loading...</p>;
     }
     return (
-      <div>
-        <p>By: {this.props.loggedInUser}</p>
-        <form onSubmit={this.handleSubmit}>
+      <form className="postFields" onSubmit={this.handleSubmit}>
+        <div className="titlePost">
           <label>Title:</label>
           <input
             required
             value={this.state.title}
             onChange={e => this.handleChange("title", e.target.value)}
           />
+        </div>
+        <div className="chooseTopicOnPost">
           <label>Topic:</label>
           <select
             required
@@ -39,14 +40,16 @@ class PostArticle extends React.Component {
               );
             })}
           </select>
-          <textarea
-            required
-            value={this.state.body}
-            onChange={e => this.handleChange("body", e.target.value)}
-          />
-          <button>Post!</button>
-        </form>
-      </div>
+        </div>
+        <textarea
+          className="writeArticleArea"
+          rows="20"
+          required
+          value={this.state.body}
+          onChange={e => this.handleChange("body", e.target.value)}
+        />
+        <button className="submitButtonGrid postButton">Post!</button>
+      </form>
     );
   }
 
