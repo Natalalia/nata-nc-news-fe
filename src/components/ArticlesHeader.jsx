@@ -3,9 +3,19 @@ import { Link } from "@reach/router";
 
 const ArticlesHeader = ({ author, loggedInUser }) => {
   return (
-    <div>
-      {author ? <h2>{author}'s ARTICLES</h2> : <h2>ARTICLES</h2>}
-      {loggedInUser ? <Link to="/new-article">Post New Article</Link> : null}
+    <div className="header">
+      {author ? (
+        <h2 className="titleHeader">{author}'s ARTICLES</h2>
+      ) : (
+        <h2 className="titleHeader">ARTICLES</h2>
+      )}
+      {loggedInUser ? (
+        <div className="postButtonGrid">
+          <Link className="postButton" to="/new-article">
+            Post New Article
+          </Link>
+        </div>
+      ) : null}
     </div>
   );
 };

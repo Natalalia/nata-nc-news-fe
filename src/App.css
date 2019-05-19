@@ -215,6 +215,48 @@ article .info a:hover {
   border: solid 3px rgb(101, 84, 179);
 }
 
+.header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 100%;
+}
+
+.titleHeader {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
+.postButtonGrid {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  display: flex;
+  align-self: center;
+  justify-self: end;
+}
+
+.postButton {
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  border: 0.1em solid #646262;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-weight: 300;
+  color: #000000;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.postButton:hover {
+  color: #fff;
+  background-color: #646262;
+}
+
 @media only screen and (max-width: 768px) {
   body {
     background-color: rgb(236, 243, 240);
