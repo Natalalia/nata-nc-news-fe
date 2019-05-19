@@ -21,14 +21,15 @@ class LogIn extends React.Component {
       );
     }
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className="logIn" onSubmit={this.handleSubmit}>
         <label>Username:</label>
         <input
+          className="logInInput"
           placeholder="ex: grumpy19"
           onChange={this.handleChange}
           type="text"
         />
-        <button>LOG IN</button>
+        <button className="postButton">LOG IN</button>
         {!this.state.isExistingUser || this.state.isLoggedIn ? (
           <p>Please, enter a valid username!</p>
         ) : null}

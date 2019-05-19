@@ -131,7 +131,7 @@ article .info a:hover {
 }
 
 .menu a {
-  padding: 0.2em 0.9em;
+  padding: 0.2em 0.9em 0.2em 0;
   font-size: 20px;
   text-transform: uppercase;
 }
@@ -143,7 +143,6 @@ article .info a:hover {
 
 .userLoggedIn {
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
@@ -157,6 +156,25 @@ article .info a:hover {
 
 .userLoggedIn button {
   height: 50%;
+}
+
+.logIn {
+  display: flex;
+  align-items: center;
+}
+
+.logIn input {
+  margin: 10px;
+}
+
+.logIn button {
+  padding-top: 5px;
+  margin: 0;
+}
+
+.logInInput {
+  width: 130px;
+  height: 25px;
 }
 
 .previewArticlesContainer {
