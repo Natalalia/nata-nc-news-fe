@@ -62,6 +62,12 @@ export const submitComment = (id, comment) => {
   );
 };
 
+export const submitUser = user => {
+  return Axios.post(`${url}/users`, user).then(({ data: { user } }) => {
+    return user;
+  });
+};
+
 export const patchArticle = (id, voteDirection) => {
   return Axios.patch(`${url}/articles/${id}`, {
     inc_votes: voteDirection

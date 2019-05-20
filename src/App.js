@@ -10,6 +10,7 @@ import AddTopic from "./components/AddTopic";
 import Authors from "./components/Authors";
 import AuthorArticles from "./components/AuthorArticles";
 import TopicArticles from "./components/TopicArticles";
+import CreateUser from "./components/CreateUser";
 import ShowError from "./components/ShowError";
 import { getAuthors } from "./api";
 
@@ -52,6 +53,7 @@ class App extends React.Component {
               authors={this.state.authors}
             />
             <TopicArticles path="/topics/:topic" authors={this.state.authors} />
+            <CreateUser path="/create-user" />
             <ShowError default />
           </Router>
         </div>
