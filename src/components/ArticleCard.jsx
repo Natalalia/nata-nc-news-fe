@@ -17,9 +17,12 @@ class ArticleCard extends React.Component {
         </div>
       );
     }
-    const correspondentAuthor = this.props.authors.filter(author => {
-      return author.username === this.state.article.author;
-    });
+    let correspondentAuthor = null;
+    if (this.state.article) {
+      correspondentAuthor = this.props.authors.filter(author => {
+        return author.username === this.state.article.author;
+      });
+    }
     return (
       <article className="articlesBrief">
         <Link

@@ -51,7 +51,7 @@ class App extends React.Component {
               path="/users/:username/articles"
               authors={this.state.authors}
             />
-            <TopicArticles path="/topics/:topic" />
+            <TopicArticles path="/topics/:topic" authors={this.state.authors} />
             <ShowError default />
           </Router>
         </div>
