@@ -304,6 +304,12 @@ article .info a:hover {
   background-color: rgb(227, 223, 247);
 }
 
+.topicItem:hover {
+  border: solid 3px #ffffff;
+  text-decoration: underline;
+  transition: all 0.2s;
+}
+
 .header {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
