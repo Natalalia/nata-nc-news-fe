@@ -24,66 +24,69 @@ class Article extends React.Component {
           message={this.state.errorMsg}
         />
       );
-    } else {
-      if (this.state.article) {
-        correspondentAuthor = this.props.authors.filter(author => {
-          return author.username === this.state.article.author;
-        });
-      }
-      return (
-        <div>
-          <article>
-            <h2>{this.state.article.title}</h2>
-            <div className="info">
-              <img
-                alt="avatar"
-                src={correspondentAuthor[0].avatar_url}
-                height="50"
-                width="50"
-              />
-              <span>By: {this.state.article.author}</span>
-              <span>Topic: {this.state.article.topic}</span>
-              <span>
-                {dayjs(this.state.article.created_at).format("DD/MM/YYYY")}
-              </span>
-            </div>
-            <p>{this.state.article.body}</p>
-            <div className="info">
-              <HandleVotes
-                previousVotes={this.state.article.votes}
-                loggedInUser={this.props.loggedInUser}
-                onVote={this.modifyArticle}
-              />
-              {this.props.loggedInUser === this.state.article.author ? (
-                <button className="postButton" onClick={this.handleClick}>
-                  Delete article
-                </button>
-              ) : null}
-            </div>
-          </article>
-          <h3>{this.state.article.comment_count} COMMENTS:</h3>
-          <Comments
-            article_id={this.state.article.article_id}
-            loggedInUser={this.props.loggedInUser}
-            avatar={this.props.avatar}
-            authors={this.props.authors}
-          />
-        </div>
-      );
     }
+    correspondentAuthor = this.props.authors.filter(author => {
+      return author.username === this.state.article.author;
+    });
+
+    return (
+      <div>
+        <article>
+          <h2>{this.state.article.title}</h2>
+          <div className="info">
+            <img
+              alt="avatar"
+              src={
+                correspondentAuthor &&
+                correspondentAuthor[0] &&
+                correspondentAuthor[0].avatar_url
+              }
+              height="50"
+              width="50"
+            />
+            <span>By: {this.state.article.author}</span>
+            <span>Topic: {this.state.article.topic}</span>
+            <span>
+              {dayjs(this.state.article.created_at).format("DD/MM/YYYY")}
+            </span>
+          </div>
+          <p>{this.state.article.body}</p>
+          <div className="info">
+            <HandleVotes
+              previousVotes={this.state.article.votes}
+              loggedInUser={this.props.loggedInUser}
+              onVote={this.modifyArticle}
+            />
+            {this.props.loggedInUser === this.state.article.author ? (
+              <button className="postButton" onClick={this.handleClick}>
+                Delete article
+              </button>
+            ) : null}
+          </div>
+        </article>
+        <Comments
+          article_id={this.state.article.article_id}
+          loggedInUser={this.props.loggedInUser}
+          avatar={this.props.avatar}
+          authors={this.props.authors}
+        />
+      </div>
+    );
   }
 
   componentDidMount() {
+    debugger;
     fetchArticle(this.props.article_id)
       .then(article => {
         this.setState({ article, votes: 0, loading: false });
       })
-      .catch(({ response: { data, status } }) => {
-        this.setState({
+      .catch(err => {
+        console.log(err);
+        /* this.setState({
           errorMsg: data.msg,
           errorStatus: status,
           loading: false
-        });
+        }); */
       });
   }
 

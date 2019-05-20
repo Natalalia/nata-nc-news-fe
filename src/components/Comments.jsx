@@ -10,6 +10,7 @@ class Comments extends React.Component {
   render() {
     return (
       <div>
+        <h3>{this.state.comments.length} COMMENTS:</h3>
         <CommentsList
           removeComment={this.removeComment}
           article_id={this.props.article_id}
