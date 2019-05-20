@@ -13,22 +13,26 @@ const ArticlesList = props => {
           />
         );
       })}
-      <button
-        onClick={() => {
-          props.onChangePage(-1);
-        }}
-        disabled={props.p === 1}
-      >
-        prev
-      </button>
-      <button
-        onClick={() => {
-          props.onChangePage(1);
-        }}
-        disabled={props.p === Math.ceil(props.total_count / 10)}
-      >
-        next
-      </button>
+      <div className="buttonsSeparation">
+        <button
+          className="postButton"
+          onClick={() => {
+            props.onChangePage(-1);
+          }}
+          disabled={props.p === 1}
+        >
+          prev
+        </button>
+        <button
+          className="postButton"
+          onClick={() => {
+            props.onChangePage(1);
+          }}
+          disabled={props.p === Math.ceil(props.total_count / 10)}
+        >
+          next
+        </button>
+      </div>
     </div>
   );
 };

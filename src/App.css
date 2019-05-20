@@ -347,6 +347,11 @@ article .info a:hover {
   background-color: rgb(64, 64, 64);
 }
 
+.buttonsSeparation {
+  display: flex;
+  justify-content: center;
+}
+
 .postFields {
   margin-top: 30px;
   display: grid;
@@ -479,5 +484,9 @@ article .info a:hover {
 
   .articlesGrid {
     grid-column-start: 1;
+  }
+
+  .buttonsSeparation {
+    justify-content: space-evenly;
   }
 }
