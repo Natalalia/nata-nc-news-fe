@@ -34,17 +34,19 @@ class Article extends React.Component {
         <article>
           <h2>{this.state.article.title}</h2>
           <div className="info">
-            <img
-              alt="avatar"
-              src={
-                correspondentAuthor &&
-                correspondentAuthor[0] &&
-                correspondentAuthor[0].avatar_url
-              }
-              height="50"
-              width="50"
-            />
-            <span>By: {this.state.article.author}</span>
+            <div className="imageAndName">
+              <img
+                alt="avatar"
+                src={
+                  correspondentAuthor &&
+                  correspondentAuthor[0] &&
+                  correspondentAuthor[0].avatar_url
+                }
+                height="50"
+                width="50"
+              />
+              <span>By: {this.state.article.author}</span>
+            </div>
             <span>Topic: {this.state.article.topic}</span>
             <span>
               {dayjs(this.state.article.created_at).format("DD/MM/YYYY")}
