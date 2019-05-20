@@ -14,7 +14,11 @@ class PostArticle extends React.Component {
       return <p>You must be logged in to post an article</p>;
     }
     if (this.state.loading) {
-      return <p>Loading...</p>;
+      return (
+        <div className="loader">
+          <p>Loading ...</p>
+        </div>
+      );
     }
     return (
       <form className="postFields" onSubmit={this.handleSubmit}>

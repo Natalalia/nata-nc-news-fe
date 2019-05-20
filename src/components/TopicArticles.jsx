@@ -13,7 +13,11 @@ class TopicArticles extends React.Component {
   };
   render() {
     if (this.state.loading) {
-      return <p>Loading ...</p>;
+      return (
+        <div className="loader">
+          <p>Loading ...</p>
+        </div>
+      );
     }
     if (this.state.error) {
       return <p>Internal error, try later...</p>;

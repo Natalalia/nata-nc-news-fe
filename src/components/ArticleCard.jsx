@@ -11,7 +11,11 @@ class ArticleCard extends React.Component {
 
   render() {
     if (this.state.loading) {
-      return <p>Loading ...</p>;
+      return (
+        <div className="loader">
+          <p>Loading ...</p>
+        </div>
+      );
     }
     return (
       <article className="articlesBrief">
