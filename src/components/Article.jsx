@@ -59,10 +59,9 @@ class Article extends React.Component {
                   Delete article
                 </button>
               ) : null}
-              <span>Comments: {this.state.article.comment_count}</span>
             </div>
           </article>
-          <h3>COMMENTS:</h3>
+          <h3>{this.state.article.comment_count} COMMENTS:</h3>
           <Comments
             article_id={this.state.article.article_id}
             loggedInUser={this.props.loggedInUser}
