@@ -12,8 +12,8 @@ class CreateUser extends React.Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <div>
+        <form onSubmit={this.handleSubmit} className="form">
+          <div className="firstInput">
             <label>Name:</label>
             <input
               required
@@ -21,7 +21,7 @@ class CreateUser extends React.Component {
               onChange={e => this.handleChange("name", e.target.value)}
             />
           </div>
-          <div>
+          <div className="secondInput">
             <label>Username:</label>
             <input
               required
@@ -29,7 +29,7 @@ class CreateUser extends React.Component {
               onChange={e => this.handleChange("username", e.target.value)}
             />
           </div>
-          <div>
+          <div className="thirdInput">
             <label>Avatar url:</label>
             <input
               value={this.state.avatar_url}
@@ -37,7 +37,9 @@ class CreateUser extends React.Component {
             />
           </div>
           <div>
-            <button className="postButton">Create user!</button>
+            <button className="createButtonGrid postButton">
+              Create user!
+            </button>
           </div>
         </form>
       </div>

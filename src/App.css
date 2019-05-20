@@ -413,15 +413,15 @@ article .info a:hover {
   justify-self: center;
 }
 
-.topicForm {
+.form {
   margin-top: 30px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 10px;
 }
 
-.topicInput {
+.firstInput {
   grid-row-start: 1;
   grid-row-end: 2;
   grid-column-start: 2;
@@ -430,7 +430,7 @@ article .info a:hover {
   justify-content: space-between;
 }
 
-.descriptionInput {
+.secondInput {
   grid-row-start: 2;
   grid-row-end: 3;
   grid-column-start: 2;
@@ -439,7 +439,25 @@ article .info a:hover {
   justify-content: space-between;
 }
 
-.topicForm .submitButtonGrid {
+.thirdInput {
+  grid-row-start: 3;
+  grid-row-end: 4;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  display: flex;
+  justify-content: space-between;
+}
+
+.createButtonGrid {
+  grid-row-start: 4;
+  grid-row-end: 5;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  display: flex;
+  justify-self: end;
+}
+
+.form .submitButtonGrid {
   grid-row-start: 3;
   grid-row-end: 4;
   grid-column-start: 2;

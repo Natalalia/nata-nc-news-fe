@@ -13,8 +13,8 @@ class AddTopic extends React.Component {
     }
     return (
       <div>
-        <form onSubmit={this.handleSubmit} className="topicForm">
-          <div className="topicInput">
+        <form onSubmit={this.handleSubmit} className="form">
+          <div className="firstInput">
             <label>Topic:</label>
             <input
               required
@@ -22,7 +22,7 @@ class AddTopic extends React.Component {
               onChange={e => this.handleChange("slug", e.target.value)}
             />
           </div>
-          <div className="descriptionInput">
+          <div className="secondInput">
             <label>Description:</label>
             <input
               required
