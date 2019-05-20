@@ -138,6 +138,7 @@ article .info a:hover {
   padding: 0.2em 0.9em 0.2em 0;
   font-size: 20px;
   text-transform: uppercase;
+  transition: all 0.2s;
 }
 
 .menu a:hover {
@@ -218,6 +219,7 @@ article .info a:hover {
 .topicsList li {
   padding: 0.5em;
   cursor: pointer;
+  transition: all 0.2s;
 }
 
 .topicsList li:hover {
@@ -249,6 +251,7 @@ article .info a:hover {
 .authorItem {
   margin: 2em;
   padding: 1em;
+  transition: all 0.2s;
 }
 
 .authorItem:hover {
