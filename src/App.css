@@ -450,6 +450,10 @@ article .info a:hover {
   animation: spin 2s linear infinite;
 }
 
+.readMore {
+  text-decoration: underline;
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);

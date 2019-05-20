@@ -52,7 +52,15 @@ class ArticleCard extends React.Component {
             {dayjs(this.props.listElement.created_at).format("DD/MM/YYYY")}
           </span>
         </div>
-        <p>{this.createPreview()}...</p>
+        <p>
+          {this.createPreview()}...
+          <Link
+            className="readMore"
+            to={`/articles/${this.props.listElement.article_id}`}
+          >
+            read more
+          </Link>
+        </p>
         <div className="opinions">
           <span>Votes:{this.props.listElement.votes}</span>
           <span>Comments:{this.props.listElement.comment_count}</span>
