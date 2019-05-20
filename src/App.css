@@ -347,6 +347,11 @@ article .info a:hover {
   background-color: rgb(64, 64, 64);
 }
 
+.postButton:disabled {
+  color: #fff;
+  background-color: rgb(110, 107, 107);
+}
+
 .buttonsSeparation {
   display: flex;
   justify-content: center;
