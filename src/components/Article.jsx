@@ -14,7 +14,8 @@ class Article extends React.Component {
     loading: true
   };
   render() {
-    if (this.state.loading === true) {
+    let correspondentAuthor = null;
+    if (this.state.loading) {
       return <p>Loading ...</p>;
     } else if (this.state.errorMsg) {
       return (
@@ -24,11 +25,22 @@ class Article extends React.Component {
         />
       );
     } else {
+      if (this.state.article) {
+        correspondentAuthor = this.props.authors.filter(author => {
+          return author.username === this.state.article.author;
+        });
+      }
       return (
         <div>
           <article>
             <h2>{this.state.article.title}</h2>
             <div className="info">
+              <img
+                alt="avatar"
+                src={correspondentAuthor[0].avatar_url}
+                height="50"
+                width="50"
+              />
               <span>By: {this.state.article.author}</span>
               <span>Topic: {this.state.article.topic}</span>
               <span>

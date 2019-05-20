@@ -38,6 +38,7 @@ class App extends React.Component {
             <Article
               path="/articles/:article_id"
               loggedInUser={this.state.loggedInUser}
+              authors={this.state.authors}
             />
             <Topics path="/topics" loggedInUser={this.state.loggedInUser} />
             <PostArticle
