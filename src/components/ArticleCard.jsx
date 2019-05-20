@@ -25,7 +25,9 @@ class ArticleCard extends React.Component {
           <Link to={`/users/${this.props.listElement.author}/articles`}>
             {this.props.listElement.author}
           </Link>
-          <span>{this.props.listElement.topic.toUpperCase()}</span>
+          <Link to={`/topics/${this.props.listElement.topic}`}>
+            {this.props.listElement.topic}
+          </Link>
           <span>
             {dayjs(this.props.listElement.created_at).format("DD/MM/YYYY")}
           </span>
