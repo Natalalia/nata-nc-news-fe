@@ -21,6 +21,7 @@ class Comments extends React.Component {
           addComment={this.addComment}
           article_id={this.props.article_id}
           loggedInUser={this.props.loggedInUser}
+          avatar={this.props.avatar}
         />
       </div>
     );

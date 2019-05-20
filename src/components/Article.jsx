@@ -66,6 +66,7 @@ class Article extends React.Component {
           <Comments
             article_id={this.state.article.article_id}
             loggedInUser={this.props.loggedInUser}
+            avatar={this.props.avatar}
             authors={this.props.authors}
           />
         </div>
