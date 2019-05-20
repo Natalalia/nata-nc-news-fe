@@ -1,7 +1,7 @@
 import React from "react";
 import CommentCard from "./CommentCard";
 
-const CommentsList = ({ comments, removeComment, loggedInUser }) => {
+const CommentsList = ({ comments, removeComment, loggedInUser, authors }) => {
   return (
     <div>
       <ul className="commentsContainer">
@@ -12,6 +12,7 @@ const CommentsList = ({ comments, removeComment, loggedInUser }) => {
                 removeComment={removeComment}
                 comment={comment}
                 loggedInUser={loggedInUser}
+                authors={authors}
               />
             </li>
           );

@@ -40,7 +40,9 @@ class PostArticle extends React.Component {
             <option value="">----</option>
             {this.state.topics.map(topic => {
               return (
-                <option value={topic.slug}>{topic.slug.toLowerCase()}</option>
+                <option value={topic.slug} key={topic.slug}>
+                  {topic.slug.toLowerCase()}
+                </option>
               );
             })}
           </select>

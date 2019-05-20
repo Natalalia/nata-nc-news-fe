@@ -15,6 +15,7 @@ class Comments extends React.Component {
           article_id={this.props.article_id}
           loggedInUser={this.props.loggedInUser}
           comments={this.state.comments}
+          authors={this.props.authors}
         />
         <AddComment
           addComment={this.addComment}

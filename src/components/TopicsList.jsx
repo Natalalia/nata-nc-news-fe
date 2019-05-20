@@ -4,7 +4,7 @@ import { getTopics } from "../api";
 class TopicsList extends React.Component {
   state = {
     topics: [],
-    selectedTopic: null,
+    selectedTopic: "",
     loading: true,
     error: false
   };
@@ -25,17 +25,18 @@ class TopicsList extends React.Component {
         <ul className="topicsList">
           <li
             className={!this.state.selectedTopic ? "activeTopic" : null}
-            onClick={() => this.handleClick(null)}
+            key={"ALL"}
+            onClick={() => this.handleClick("")}
           >
             ALL
           </li>
-          {this.state.topics.map((topic, i) => {
+          {this.state.topics.map(topic => {
             return (
               <li
                 className={
                   topic.slug === this.state.selectedTopic ? "activeTopic" : null
                 }
-                key={i}
+                key={topic.slug}
                 onClick={() => this.handleClick(topic.slug)}
               >
                 {topic.slug.toUpperCase()}
@@ -52,7 +53,9 @@ class TopicsList extends React.Component {
             <option value="">----</option>
             {this.state.topics.map(topic => {
               return (
-                <option value={topic.slug}>{topic.slug.toLowerCase()}</option>
+                <option key={topic.slug} value={topic.slug}>
+                  {topic.slug.toLowerCase()}
+                </option>
               );
             })}
           </select>
