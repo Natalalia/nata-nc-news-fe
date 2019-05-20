@@ -5,7 +5,9 @@ import { Link } from "@reach/router";
 const Header = ({ onLogIn, onLogOut, loggedInUser, avatar }) => {
   return (
     <div>
-      <h1>Nata NC News</h1>
+      <Link to="/">
+        <h1>Nata NC News</h1>
+      </Link>
       <div className="menu">
         <nav>
           <Link to="/">Home</Link>
