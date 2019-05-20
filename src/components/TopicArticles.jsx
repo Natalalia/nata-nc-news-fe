@@ -27,7 +27,7 @@ class TopicArticles extends React.Component {
         <div className="header">
           <h2 className="titleHeader">{this.props.topic} ARTICLES</h2>
         </div>
-        <div className="previewArticlesContainer">
+        <div>
           <div className="interactWithArticles orderByGrid">
             <label>Order by:</label>
             <select onClick={e => this.handleClick(e.target.value)}>
