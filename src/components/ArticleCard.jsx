@@ -46,7 +46,7 @@ class ArticleCard extends React.Component {
           </Link>
 
           <Link to={`/topics/${this.props.listElement.topic}`}>
-            {this.props.listElement.topic}
+            {this.props.listElement.topic.toLowerCase()}
           </Link>
           <span>
             {dayjs(this.props.listElement.created_at).format("DD/MM/YYYY")}

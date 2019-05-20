@@ -47,7 +47,7 @@ class Article extends React.Component {
               />
               <span>By: {this.state.article.author}</span>
             </div>
-            <span>Topic: {this.state.article.topic}</span>
+            <span>Topic: {this.state.article.topic.toLowerCase()}</span>
             <span>
               {dayjs(this.state.article.created_at).format("DD/MM/YYYY")}
             </span>
