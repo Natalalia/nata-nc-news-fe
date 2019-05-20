@@ -14,7 +14,7 @@ class CreateUser extends React.Component {
       <div>
         <form onSubmit={this.handleSubmit} className="form">
           <div className="firstInput">
-            <label>Name:</label>
+            <label>Name*:</label>
             <input
               required
               value={this.state.name}
@@ -22,7 +22,7 @@ class CreateUser extends React.Component {
             />
           </div>
           <div className="secondInput">
-            <label>Username:</label>
+            <label>Username*:</label>
             <input
               required
               value={this.state.username}
