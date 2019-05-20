@@ -21,6 +21,11 @@ const Header = ({ onLogIn, onLogOut, loggedInUser, avatar }) => {
           avatar={avatar}
         />
       </div>
+      {!loggedInUser ? (
+        <Link to="/create-user" className="createUserLink">
+          Not a user yet? Sign in now!
+        </Link>
+      ) : null}
     </div>
   );
 };

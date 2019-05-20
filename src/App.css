@@ -152,6 +152,13 @@ article .info a:hover {
   font-weight: bold;
 }
 
+.createUserLink {
+  text-decoration: underline;
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 1em;
+}
+
 .userLoggedIn {
   display: flex;
   align-items: center;
