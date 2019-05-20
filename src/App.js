@@ -9,6 +9,7 @@ import Topics from "./components/Topics";
 import AddTopic from "./components/AddTopic";
 import Authors from "./components/Authors";
 import AuthorArticles from "./components/AuthorArticles";
+import TopicArticles from "./components/TopicArticles";
 import ShowError from "./components/ShowError";
 
 class App extends React.Component {
@@ -40,6 +41,7 @@ class App extends React.Component {
             <AddTopic path="new-topic" loggedInUser={this.state.loggedInUser} />
             <Authors path="/authors" />
             <AuthorArticles path="/users/:username/articles" />
+            <TopicArticles path="/topics/:topic" />
             <ShowError default />
           </Router>
         </div>
