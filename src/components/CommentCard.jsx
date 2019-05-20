@@ -36,14 +36,18 @@ const CommentCard = props => {
         <span>{dayjs(props.comment.created_at).format("DD/MM/YYYY")}</span>
       </div>
       <p>{props.comment.body}</p>
-      <HandleVotes
-        previousVotes={props.comment.votes}
-        loggedInUser={props.loggedInUser}
-        onVote={modifyComment}
-      />
-      {props.loggedInUser === props.comment.author ? (
-        <button onClick={handleDelete}>Delete comment</button>
-      ) : null}
+      <div className="info">
+        <HandleVotes
+          previousVotes={props.comment.votes}
+          loggedInUser={props.loggedInUser}
+          onVote={modifyComment}
+        />
+        {props.loggedInUser === props.comment.author ? (
+          <button className="postButton" onClick={handleDelete}>
+            Delete comment
+          </button>
+        ) : null}
+      </div>
     </div>
   );
 };

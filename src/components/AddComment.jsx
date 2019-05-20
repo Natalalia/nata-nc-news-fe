@@ -19,7 +19,7 @@ class AddComment extends React.Component {
               onChange={this.handleChange}
             />
             <br />
-            <button>Comment!</button>
+            <button className="postButton">Comment!</button>
           </form>
         ) : null}
       </div>
