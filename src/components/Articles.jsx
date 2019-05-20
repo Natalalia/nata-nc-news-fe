@@ -49,6 +49,7 @@ class Articles extends React.Component {
               onChangePage={this.changePage}
               p={this.state.p}
               total_count={this.state.total_count}
+              authors={this.props.authors}
             />
           </div>
         </div>

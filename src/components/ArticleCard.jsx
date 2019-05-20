@@ -17,6 +17,9 @@ class ArticleCard extends React.Component {
         </div>
       );
     }
+    const correspondentAuthor = this.props.authors.filter(author => {
+      return author.username === this.state.article.author;
+    });
     return (
       <article className="articlesBrief">
         <Link
@@ -27,7 +30,13 @@ class ArticleCard extends React.Component {
         </Link>
         <div className="info">
           <Link to={`/users/${this.props.listElement.author}/articles`}>
-            {this.props.listElement.author}
+            <img
+              alt="avatar"
+              src={correspondentAuthor[0].avatar_url}
+              height="50"
+              width="50"
+            />
+            <span>{this.props.listElement.author}</span>
           </Link>
           <Link to={`/topics/${this.props.listElement.topic}`}>
             {this.props.listElement.topic}

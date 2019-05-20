@@ -11,11 +11,13 @@ import Authors from "./components/Authors";
 import AuthorArticles from "./components/AuthorArticles";
 import TopicArticles from "./components/TopicArticles";
 import ShowError from "./components/ShowError";
+import { getAuthors } from "./api";
 
 class App extends React.Component {
   state = {
     loggedInUser: "",
-    avatar: null
+    avatar: null,
+    authors: []
   };
   render() {
     return (
@@ -28,7 +30,11 @@ class App extends React.Component {
             avatar={this.state.avatar}
           />
           <Router>
-            <Articles path="/" loggedInUser={this.state.loggedInUser} />
+            <Articles
+              path="/"
+              loggedInUser={this.state.loggedInUser}
+              authors={this.state.authors}
+            />
             <Article
               path="/articles/:article_id"
               loggedInUser={this.state.loggedInUser}
@@ -40,7 +46,10 @@ class App extends React.Component {
             />
             <AddTopic path="new-topic" loggedInUser={this.state.loggedInUser} />
             <Authors path="/authors" />
-            <AuthorArticles path="/users/:username/articles" />
+            <AuthorArticles
+              path="/users/:username/articles"
+              authors={this.state.authors}
+            />
             <TopicArticles path="/topics/:topic" />
             <ShowError default />
           </Router>
@@ -55,6 +64,13 @@ class App extends React.Component {
     if (storedUser && storedAvatar) {
       this.setState({ loggedInUser: storedUser, avatar: storedAvatar });
     }
+    getAuthors()
+      .then(authors => {
+        this.setState({ authors, loading: false });
+      })
+      .catch(() => {
+        this.setState({ error: true, loading: false });
+      });
   }
 
   onLogIn = (username, avatar_url) => {
