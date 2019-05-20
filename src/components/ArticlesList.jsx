@@ -1,12 +1,28 @@
 import React from "react";
 import ArticleCard from "./ArticleCard";
 
-const ArticlesList = ({ list }) => {
+const ArticlesList = props => {
   return (
     <div>
-      {list.map(article => {
+      {props.list.map(article => {
         return <ArticleCard key={article.article_id} listElement={article} />;
       })}
+      <button
+        onClick={() => {
+          props.onChangePage(-1);
+        }}
+        disabled={props.p === 1}
+      >
+        prev
+      </button>
+      <button
+        onClick={() => {
+          props.onChangePage(1);
+        }}
+        disabled={props.p === Math.ceil(props.total_count / 10)}
+      >
+        next
+      </button>
     </div>
   );
 };

@@ -40,23 +40,12 @@ class Articles extends React.Component {
             </select>
           </div>
           <div className="articlesGrid">
-            <ArticlesList list={this.state.articles} />
-            <button
-              onClick={() => {
-                this.changePage(-1);
-              }}
-              disabled={this.state.p === 1}
-            >
-              prev
-            </button>
-            <button
-              onClick={() => {
-                this.changePage(1);
-              }}
-              disabled={this.state.p === Math.ceil(this.state.total_count / 10)}
-            >
-              next
-            </button>
+            <ArticlesList
+              list={this.state.articles}
+              onChangePage={this.changePage}
+              p={this.state.p}
+              total_count={this.state.total_count}
+            />
           </div>
         </div>
       </div>
