@@ -29,7 +29,10 @@ class ArticleCard extends React.Component {
           {this.props.listElement.title}
         </Link>
         <div className="info">
-          <Link to={`/users/${this.props.listElement.author}/articles`}>
+          <Link
+            to={`/users/${this.props.listElement.author}/articles`}
+            className="imageAndName"
+          >
             <img
               alt="avatar"
               src={correspondentAuthor[0].avatar_url}
@@ -38,6 +41,7 @@ class ArticleCard extends React.Component {
             />
             <span>{this.props.listElement.author}</span>
           </Link>
+
           <Link to={`/topics/${this.props.listElement.topic}`}>
             {this.props.listElement.topic}
           </Link>

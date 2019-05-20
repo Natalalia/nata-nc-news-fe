@@ -86,6 +86,11 @@ article.articlesBrief {
   background-color: rgb(227, 223, 247);
 }
 
+.imageAndName {
+  display: flex;
+  align-self: center;
+}
+
 article h2 {
   margin: 0 0 45px 0;
 }
