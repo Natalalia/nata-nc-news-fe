@@ -5,7 +5,7 @@ const TopicCard = ({ listTopic }) => {
   return (
     <div className="topicItem">
       <Link to={`/topics/${listTopic.slug}`}>
-        <h4>{listTopic.slug.toUpperCase()}</h4>
+        <h3>{listTopic.slug.toUpperCase()}</h3>
         <p>{listTopic.description}</p>
       </Link>
     </div>

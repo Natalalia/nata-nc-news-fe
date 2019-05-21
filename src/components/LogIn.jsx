@@ -22,8 +22,9 @@ class LogIn extends React.Component {
     }
     return (
       <form className="logIn" onSubmit={this.handleSubmit}>
-        <label>Username:</label>
+        <label for="username">Username:</label>
         <input
+          id="username"
           className="logInInput"
           placeholder="ex: grumpy19"
           onChange={this.handleChange}

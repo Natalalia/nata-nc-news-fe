@@ -77,18 +77,16 @@ class Article extends React.Component {
   }
 
   componentDidMount() {
-    debugger;
     fetchArticle(this.props.article_id)
       .then(article => {
         this.setState({ article, votes: 0, loading: false });
       })
-      .catch(err => {
-        console.log(err);
-        /* this.setState({
+      .catch(({ response: { data, status } }) => {
+        this.setState({
           errorMsg: data.msg,
           errorStatus: status,
           loading: false
-        }); */
+        });
       });
   }
 

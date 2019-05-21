@@ -36,8 +36,8 @@ class Articles extends React.Component {
             <TopicsList onSelect={this.onSelect} />
           </div>
           <div className="interactWithArticles orderByGrid">
-            <label>Order by:</label>
-            <select onClick={e => this.handleClick(e.target.value)}>
+            <label for="sortBy">Order by:</label>
+            <select id="sortBy" onClick={e => this.handleClick(e.target.value)}>
               <option value="created_at">date created</option>
               <option value="comment_count">number of comments</option>
               <option value="votes">number of votes</option>

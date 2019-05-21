@@ -23,16 +23,18 @@ class PostArticle extends React.Component {
     return (
       <form className="postFields" onSubmit={this.handleSubmit}>
         <div className="titlePost">
-          <label>Title:</label>
+          <label for="title">Title:</label>
           <input
+            id="title"
             required
             value={this.state.title}
             onChange={e => this.handleChange("title", e.target.value)}
           />
         </div>
         <div className="chooseTopicOnPost">
-          <label>Topic:</label>
+          <label for="topic">Topic:</label>
           <select
+            id="topic"
             required
             value={this.state.topic}
             onChange={e => this.handleChange("topic", e.target.value)}
@@ -47,7 +49,9 @@ class PostArticle extends React.Component {
             })}
           </select>
         </div>
+        <label for="textArea">Body:</label>
         <textarea
+          id="textArea"
           className="writeArticleArea"
           rows="20"
           required

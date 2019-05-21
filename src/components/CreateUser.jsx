@@ -14,24 +14,27 @@ class CreateUser extends React.Component {
       <div>
         <form onSubmit={this.handleSubmit} className="form">
           <div className="firstInput">
-            <label>Name*:</label>
+            <label for="name">Name*:</label>
             <input
+              id="name"
               required
               value={this.state.name}
               onChange={e => this.handleChange("name", e.target.value)}
             />
           </div>
           <div className="secondInput">
-            <label>Username*:</label>
+            <label for="user">Username*:</label>
             <input
+              id="user"
               required
               value={this.state.username}
               onChange={e => this.handleChange("username", e.target.value)}
             />
           </div>
           <div className="thirdInput">
-            <label>Avatar url:</label>
+            <label for="avatar">Avatar url:</label>
             <input
+              id="avatar"
               value={""}
               onChange={e => this.handleChange("avatar_url", e.target.value)}
             />

@@ -11,9 +11,10 @@ class AddComment extends React.Component {
       <div>
         {this.props.loggedInUser ? (
           <form onSubmit={this.handleSubmit}>
-            <label>Add new comment:</label>
+            <label for="commentArea">Add new comment:</label>
             <br />
             <textarea
+              id="commentArea"
               required
               value={this.state.comment_body}
               onChange={this.handleChange}
