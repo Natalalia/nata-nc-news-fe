@@ -34,6 +34,8 @@ class CreateUser extends React.Component {
           <div className="thirdInput">
             <label for="avatar">Avatar url:</label>
             <input
+              placeholder="https://example.com"
+              type="url"
               id="avatar"
               value={this.state.avatar_url}
               onChange={e => this.handleChange("avatar_url", e.target.value)}
