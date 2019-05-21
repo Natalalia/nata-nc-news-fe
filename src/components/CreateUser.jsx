@@ -5,7 +5,7 @@ import { submitUser } from "../api";
 class CreateUser extends React.Component {
   state = {
     username: "",
-    avatar_url: "https://www.uic.mx/posgrados/files/2018/05/default-user.png",
+    avatar_url: "",
     name: ""
   };
 
@@ -35,7 +35,7 @@ class CreateUser extends React.Component {
             <label for="avatar">Avatar url:</label>
             <input
               id="avatar"
-              value={""}
+              value={this.state.avatar_url}
               onChange={e => this.handleChange("avatar_url", e.target.value)}
             />
           </div>
@@ -53,9 +53,13 @@ class CreateUser extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    let avatar = "https://www.uic.mx/posgrados/files/2018/05/default-user.png";
+    if (this.state.avatar_url) {
+      avatar = this.state.avatar_url;
+    }
     submitUser({
       username: this.state.username,
-      avatar_url: this.state.avatar_url,
+      avatar_url: avatar,
       name: this.state.name
     }).then(() => {
       navigate("/authors");
