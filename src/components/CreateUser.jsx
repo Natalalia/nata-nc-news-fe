@@ -34,7 +34,7 @@ class CreateUser extends React.Component {
           <div className="thirdInput">
             <label for="avatar">Avatar url:</label>
             <input
-              placeholder="https://example.com"
+              placeholder="https://image.jpg .png"
               type="url"
               id="avatar"
               value={this.state.avatar_url}
