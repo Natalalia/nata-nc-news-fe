@@ -375,7 +375,7 @@ article .info a:hover {
   margin-top: 30px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 25px 25px auto auto;
+  grid-template-rows: 25px 25px 25px auto auto;
   grid-gap: 10px;
 }
 
@@ -397,16 +397,24 @@ article .info a:hover {
   justify-self: left;
 }
 
-.writeArticleArea {
+.articlePostArea {
   grid-row-start: 3;
   grid-row-end: 4;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  display: flex;
+}
+
+.writeArticleArea {
+  grid-row-start: 4;
+  grid-row-end: 5;
   grid-column-start: 1;
   grid-column-end: 4;
 }
 
 .submitButtonGrid {
-  grid-row-start: 4;
-  grid-row-end: 5;
+  grid-row-start: 5;
+  grid-row-end: 6;
   grid-column-start: 2;
   grid-column-end: 3;
   display: flex;

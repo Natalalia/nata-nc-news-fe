@@ -49,7 +49,9 @@ class PostArticle extends React.Component {
             })}
           </select>
         </div>
-        <label for="textArea">Body:</label>
+        <label className="articlePostArea" for="textArea">
+          Body:
+        </label>
         <textarea
           id="textArea"
           className="writeArticleArea"
