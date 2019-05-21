@@ -39,10 +39,8 @@ class CreateUser extends React.Component {
               onChange={e => this.handleChange("avatar_url", e.target.value)}
             />
           </div>
-          <div>
-            <button className="createButtonGrid postButton">
-              Create user!
-            </button>
+          <div className="createButtonGrid">
+            <button className="postButton">Create user!</button>
           </div>
         </form>
       </div>
