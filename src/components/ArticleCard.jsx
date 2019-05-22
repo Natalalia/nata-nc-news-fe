@@ -53,7 +53,7 @@ class ArticleCard extends React.Component {
           </span>
         </div>
         <p>
-          {this.createPreview()}...
+          {createPreview(this.state.article.body)}...
           <Link
             className="readMore"
             to={`/articles/${this.props.listElement.article_id}`}
@@ -74,13 +74,12 @@ class ArticleCard extends React.Component {
       this.setState({ article, loading: false });
     });
   }
-
-  createPreview() {
-    const body = this.state.article.body;
-    const bodyArray = body.split(" ");
-    const bodyPreviewArray = bodyArray.slice(0, 25);
-    return bodyPreviewArray.join(" ");
-  }
 }
+
+export const createPreview = body => {
+  const bodyArray = body.split(" ");
+  const bodyPreviewArray = bodyArray.slice(0, 25);
+  return bodyPreviewArray.join(" ");
+};
 
 export default ArticleCard;
