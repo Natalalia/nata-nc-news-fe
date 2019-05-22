@@ -1,6 +1,6 @@
 import React from "react";
 
-const AuthorsHeader = props => {
+const AuthorsHeader = () => {
   return (
     <div className="header">
       <h2 className="titleHeader">AUTHORS</h2>
