@@ -487,6 +487,33 @@ article .info a:hover {
   text-decoration: underline;
 }
 
+.voteButtons {
+  width: 100px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.singleVoteButton {
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  border: 0.1em solid rgb(64, 64, 64);
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-weight: 300;
+  color: #000000;
+  background-color: #fff;
+  text-align: center;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.singleVoteButton:disabled {
+  color: #fff;
+  background-color: rgba(110, 107, 107, 0.192);
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);

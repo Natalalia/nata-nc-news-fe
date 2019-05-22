@@ -15,8 +15,9 @@ class HandleVotes extends React.Component {
       <div>
         <span>Votes:{this.props.previousVotes + this.state.vote}</span>
         {this.props.loggedInUser ? (
-          <div>
+          <div className="voteButtons">
             <button
+              className="singleVoteButton"
               onClick={() => {
                 if (this.state.vote === 1) {
                   this.handleVote(-1);
@@ -33,6 +34,7 @@ class HandleVotes extends React.Component {
               )}
             </button>
             <button
+              className="singleVoteButton"
               onClick={() => {
                 if (this.state.vote === -1) {
                   this.handleVote(1);
