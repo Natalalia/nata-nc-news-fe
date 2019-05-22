@@ -12,8 +12,14 @@ class LogIn extends React.Component {
     if (this.state.isLoggedIn || this.props.loggedInUser) {
       return (
         <div className="userLoggedIn">
-          <img alt="avatar" src={this.props.avatar} height="50" width="50" />
-          <span>{this.props.loggedInUser}</span>
+          <img
+            data-cy="login-username-img"
+            alt="avatar"
+            src={this.props.avatar}
+            height="50"
+            width="50"
+          />
+          <span data-cy="login-username-name">{this.props.loggedInUser}</span>
           <button className="postButton" onClick={this.handleClick}>
             LOG OUT
           </button>
@@ -30,9 +36,11 @@ class LogIn extends React.Component {
           onChange={this.handleChange}
           type="text"
         />
-        <button className="postButton">LOG IN</button>
+        <button data-cy="logIn-button" className="postButton">
+          LOG IN
+        </button>
         {!this.state.isExistingUser || this.state.isLoggedIn ? (
-          <p>Please, enter a valid username!</p>
+          <p data-cy="warning-username-msg">Please, enter a valid username!</p>
         ) : null}
       </form>
     );
