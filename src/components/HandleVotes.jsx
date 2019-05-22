@@ -1,4 +1,10 @@
 import React from "react";
+import {
+  TiArrowDownOutline,
+  TiArrowUpOutline,
+  TiArrowDownThick,
+  TiArrowUpThick
+} from "react-icons/ti";
 
 class HandleVotes extends React.Component {
   state = {
@@ -20,7 +26,11 @@ class HandleVotes extends React.Component {
               }}
               disabled={this.state.vote === -1}
             >
-              like
+              {this.state.vote === 1 ? (
+                <TiArrowUpThick />
+              ) : (
+                <TiArrowUpOutline />
+              )}
             </button>
             <button
               onClick={() => {
@@ -32,7 +42,11 @@ class HandleVotes extends React.Component {
               }}
               disabled={this.state.vote === 1}
             >
-              dislike
+              {this.state.vote === -1 ? (
+                <TiArrowDownThick />
+              ) : (
+                <TiArrowDownOutline />
+              )}
             </button>
           </div>
         ) : null}
